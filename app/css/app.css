@@ -1,0 +1,21 @@
+body {
+    background: url('../img/greenDay.jpg') no-repeat center center fixed;
+    background-size:cover;
+}
+
+.song-conver{
+	padding: 2.5px;
+	max-height: 100px;
+	max-width: 100px;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}   
+
+.test{
+	background: yellow
+}

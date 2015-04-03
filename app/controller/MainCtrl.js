@@ -1,5 +1,5 @@
 
-noisedWeb.controller('MainCtrl', function($scope,$rootScope,$location,BackgroundImage,Theme){
+noisedWeb.controller('MainCtrl', function($scope,$rootScope,$route,$location,BackgroundImage,Theme){
 
 	$scope.theme = "";
 	$scope.poster= "";
@@ -24,8 +24,24 @@ noisedWeb.controller('MainCtrl', function($scope,$rootScope,$location,Background
 		"$routeChangeSuccess",
 		function ( event ) {
 			var location = $location.path();
-			if(location === "/player"){
-				$scope.poster = BackgroundImage.getCurrentImage();
+			if($route.current && 
+			   'hasBackgroundImage' in $route.current &&
+			   $route.current.hasBackgroundImage){
+
+			   if('forcedBackgroundImage' in $route.current){
+				   $scope.poster = $route.current.forcedBackgroundImage;
+			   }
+			   else if('fallbackBackgroundImage' in $route.current){
+			   		if(BackgroundImage.getCurrentImage() === null){
+				   		$scope.poster = $route.current.fallbackBackgroundImage;
+					}
+				   	else{
+				    	$scope.poster = BackgroundImage.getCurrentImage();
+					}
+			   }
+			   else{
+				   $scope.poster = BackgroundImage.getCurrentImage();
+			   }
 			}
 			else{
 				$scope.poster = "";

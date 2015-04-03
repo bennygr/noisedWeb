@@ -4,6 +4,10 @@
 	max-width: 100px;
 }
 
+.loginPanel{
+	padding: 20px;
+}
+
 .footer {
     position: fixed;
     left: 0;

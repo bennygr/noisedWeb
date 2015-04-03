@@ -1,4 +1,4 @@
-testApp.factory('Theme',function(){
+noisedWeb.factory('Theme',function(){
 	//var currentTheme = "bower_components/bootstrap/dist/css/cyborg.min.css";
 	//var currentTheme = "bower_components/bootstrap/dist/css/darkly.min.css";
 	var currentTheme = "bower_components/bootstrap/dist/css/slate.min.css";

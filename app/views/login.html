@@ -8,6 +8,7 @@
 			<form data-ng-submit="signin()" class="form-horizontal" autocomplete="off">
 				<fieldset>
 					<div class="form-group">
+						<!-- server -->
 						<label for="Server">Server:</label>
 						<input type="text" 
 								id="server" 
@@ -15,34 +16,50 @@
 								class="form-control" 
 								data-ng-model="credentials.server" 
 								placeholder="127.0.0.1">
-						</div>
-						<div class="form-group">
-							<label for="username">Username</label>
-							<input type="text" 
-									id="username" 
-									name="username" 
-									class="form-control" 
-									data-ng-model="credentials.username" 
-									placeholder="Username">
-							</div>
-							<div class="form-group">
-								<label for="password">Password</label>
-								<input type="password" 
-										id="password" 
-										name="password" 
-										class="form-control" 
-										data-ng-model="credentials.password" 
-										placeholder="Password">
-								</div>
-								<div class="text-center form-group">
-									<button type="submit" ng-click="HelloWorld()"class="btn btn-primary">Sign in</button>
-								</div>
-								<div data-ng-show="error" class="text-center text-danger">
-									<strong data-ng-bind="error"></strong>
-								</div>
-							</fieldset>
-						</form>
 					</div>
-				</div>
-			</div>
+
+					<!-- description -->
+					<div class="form-group">
+						<!-- server -->
+						<label for="Description">Description:</label>
+						<input type="text" 
+								id="description" 
+								name="description" 
+								class="form-control" 
+								data-ng-model="credentials.description" 
+								placeholder="living room">
+					</div>
+
+					<!-- username -->
+					<div class="form-group">
+						<label for="username">Username</label>
+						<input type="text" 
+								id="username" 
+								name="username" 
+								class="form-control" 
+								data-ng-model="credentials.username" 
+								placeholder="Username">
+					</div>
+
+					<!-- password -->
+					<div class="form-group">
+						<label for="password">Password</label>
+						<input type="password" 
+								id="password" 
+								name="password" 
+								class="form-control" 
+								data-ng-model="credentials.password" 
+								placeholder="Password">
+					</div>
+					<div class="text-center form-group">
+						<button type="submit" ng-click="HelloWorld()"class="btn btn-primary">Sign in</button>
+					</div>
+					<div data-ng-show="error" class="text-center text-danger">
+						<strong data-ng-bind="error"></strong>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</div>
 

@@ -6,5 +6,6 @@ noisedWeb.controller('LoginCtrl', function($scope,ConnectionManager,Command){
 	Command.registerResponseCallback(function(connection,response){
 		alert("GOT AN RESP: " + connection.url);
 		alert("GOT AN RESP: " + response.Name);
-	});
+
+	},/Noised\.Commands\.Core\..*/); //Just an example regex: All Core commands
 });

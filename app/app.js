@@ -10,7 +10,7 @@ noisedWeb.config(function($routeProvider){
 	// forcedBackgroundImage: define a background image
 	// fallbackBackgroundImage: display current artist image or
 	//						    fallback image						
-
+	//Using default error message view
 	//login
 	.when('/',{
 			templateUrl: 'app/views/login.html',

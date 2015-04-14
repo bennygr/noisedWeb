@@ -3,6 +3,8 @@ noisedWeb.controller('MainCtrl', function($scope,$rootScope,$route,$location,Bac
 
 	$scope.theme = "";
 	$scope.poster= "";
+	$scope.showBallonOnError = false;
+
 	//Watch for theme changes
 	$scope.$watch(function(){ 
 					return Theme.getCurrentTheme();
@@ -46,7 +48,6 @@ noisedWeb.controller('MainCtrl', function($scope,$rootScope,$route,$location,Bac
 			else{
 				$scope.poster = "";
 			}
-			
 		}
 	);
 });

@@ -19,7 +19,7 @@ noisedWeb.factory('ConnectionManager',function(Command){
 
 		//Connects to a server
 		connectToServer: 
-		function(url, port, description, username, password){ 
+		function(url, port, description, username, password, errorClb, closeClb){ 
 
 			var fullUrl = url + ":" + port;
 			var socket = new WebSocket(fullUrl);
@@ -44,12 +44,39 @@ noisedWeb.factory('ConnectionManager',function(Command){
 					});  
 			}
 
-			socket.onclose = function(){
-				alert("closed");
+			socket.onclose = function(event){
+				var index = -1;
+				var closeConnection = null;
+				for(var i=0;i<connectionList.length; i++){
+					var connection = connectionList[i];
+					if(connection.socket === socket){
+						closeConnection = connection;
+						index = i;
+						break;
+					}
+				}
+				if(index > -1){
+					connectionList.splice(index,1);
+				}
+
+				closeClb(closeConnection,event.code);
 			}
 
 			socket.onerror = function(error) {
-				alert('WebSocket Error: ' + error);
+				var errorConnection = null;
+
+				//check if we have a valid connection
+				for(var i=0;i<connectionList.length; i++){
+					var connection = connectionList[i];
+					if(connection.socket === socket){
+						errorConnection = connection;
+						break;
+					}
+				}
+
+				//Callback
+				errorClb(errorConnection,error);
+
 			};
 
 			socket.onmessage = function(message){
@@ -58,6 +85,7 @@ noisedWeb.factory('ConnectionManager',function(Command){
 					if(connection.socket === socket){
 						var response = JSON.parse(message.data);
 						Command.announceResponse(connection,response);
+						break;
 					}
 				}
 			}

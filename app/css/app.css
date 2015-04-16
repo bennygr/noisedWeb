@@ -18,3 +18,8 @@
 .test{
 	background: yellow
 }
+
+.songPanel{
+	max-width: 350px;
+}
+

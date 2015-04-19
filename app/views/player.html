@@ -1,62 +1,63 @@
-	<!-- Media Control Panel -->
-	<div class="footer container-fluid">
-		<div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">
-			<div class="panel panel-default songPanel">
-				<!-- First row cotaining Song-Info and cover-->
-				<div class="row">
-
-					<!-- Song info -->
-					<div class="col-xs-8">
-						<blockquote>
-							Stuck with me 
-							<footer>
-								<cite title="Source Title">By</cite> Green Day
-							</footer>
-						</blockquote>
-					</div>
-
-					<!-- Covert -->
-					<div class="col-xs-4">
-						<p/>
-						<img class="img-responsive pull-right song-conver" 
-								ng-src="{{albumImage}}"/>
-					</div>
-				</div>
-
-				<!-- control buttons -->
-				<div class="row">
-					<div class="col-xs-9">
-						<div class="media-right">
-							<button type="button" class="btn btn-default">
-								<span class="glyphicon glyphicon-step-backward" aria-hidden="true"/>
-							</button>
-							<button type="button" ng-click="HelloWorld()" class="btn btn-default">
-								<span class="glyphicon glyphicon-play" aria-hidden="true"/>
-							</button>
-							<button type="button" class="btn btn-default">
-								<span class="glyphicon glyphicon-step-forward" aria-hidden="true"/>
-							</button>
-						</div>
-					</div>
-				</div>
-				<p/>
-
-				<!-- progress bar -->
-				<div class="row">
-					<div class="col-xs-12">
-						<div class="progress">
-							<div class="progress-bar progress-bar-striped" 
-									role="progressbar" 
-									aria-valuenow="100" 
-									aria-valuemin="0" 
-									aria-valuemax="100" 
-									style="width: 90%;">
-								<span class="sr-only">60% Complete</span>
-								<strong>2:17 / 3:27</strong>
-							</div>
-						</div>
-					</div>
+<div class="container">
+	<div class=row>
+		<div class="col-xs-12 col-sm-4 col-sm-offset-4">
+			<img class="img-responsive center-block" ng-src="{{albumImage}}"/>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-xs-12 col-sm-4 col-sm-offset-4">
+			<h5>Having a blast <small> <cite>, by Green Day</cite></small></h5>
+			<div class="progress">
+				<div class="progress-bar"
+						role="progressbar" 
+						aria-valuenow="100" 
+						aria-valuemin="0" 
+						aria-valuemax="100" 
+						style="width: 90%;">
+					<span class="sr-only">60% Complete</span>
+					<strong>2:17 / 3:27</strong>
 				</div>
 			</div>
 		</div>
 	</div>
+
+	<div class="row">
+		<div class="col-xs-12 col-sm-4 col-sm-offset-4">
+			<div class="text-center">
+				<button type="button" class="btn btn-primary btn-circle-sm">
+					<span class="glyphicon glyphicon-random" aria-hidden="true"/>
+				</button>
+
+				<button type="button" class="btn btn-primary btn-circle-sm">
+					<span class="glyphicon glyphicon-step-backward" aria-hidden="true"/>
+				</button>
+
+				<button type="button" class="btn btn-primary btn-circle">
+					<span class="glyphicon glyphicon-play" aria-hidden="true"/>
+				</button>
+
+				<button type="button" class="btn btn-primary btn-circle-sm">
+					<span class="glyphicon glyphicon-step-forward" aria-hidden="true"/>
+				</button>
+
+					<!-- Single button -->
+					<div class="btn-group" dropdown is-open="status.isopen">
+						<button type="button"
+								class="btn btn-primary btn-circle-sm dropdown-toggle" dropdown-toggle ng-disabled="disabled">
+							...
+						</button>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#">Actiocn</a></li>
+							<li><a href="#">Another action</a></li>
+							<li><a href="#">Something else here</a></li>
+							<li class="divider"></li>
+							<li><a href="#">Separated link</a></li>
+						</ul>
+					</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+

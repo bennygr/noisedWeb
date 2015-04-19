@@ -1,5 +1,5 @@
 
-var noisedWeb = angular.module('noisedWeb',['ngRoute']);
+var noisedWeb = angular.module('noisedWeb',['ngRoute','ui.bootstrap']);
 
 noisedWeb.config(function($routeProvider){
 	$routeProvider

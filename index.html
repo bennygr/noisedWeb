@@ -9,17 +9,23 @@
 	<link rel="stylesheet" ng-href="{{theme}}"/>
 	<link rel="stylesheet" href="app/css/app.css"/>
 </head>
+<!-- <body ng-style="{'background':'url('+poster+') no-repeat center center fixed', 'background-size':'cover','height':'100%'}"> -->
 <body>
-<body ng-style="{'background':'url('+poster+') no-repeat center center fixed', 'background-size':'cover','height':'100%'}">
 	<!-- HEADER AND NAVBAR -->
 	<header>
 		<nav class="navbar navbar-default">
-			<div class="container">
 				<div class="navbar-header">
-					<a class="navbar-brand" href="/">Noised Music Player daemon</a>
+					<button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" ng-show="!navCollapsde" href="/">Noised Music Player daemon</a>
 				</div>
 
-				<ul class="nav navbar-nav navbar-right">
+
+				<div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
+				<ul class="nav navbar-nav navbar-right" >
 					<li> <a href="#player"> <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span> </a> </li>
 					<li> <a href="#browser"> <span class="glyphicon glyphicon-music" aria-hidden="true"></span> </a> </li>
 					<li> <a href="#queue"> <span class="glyphicon glyphicon-indent-left" aria-hidden="true"></span> </a> </li>
@@ -28,24 +34,17 @@
 					<li> <a href="#user"> <span class="glyphicon glyphicon-user" aria-hidden="true"></span> </a> </li>
 					<li> <a href="#settings"> <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> </a> </li>
 				</ul>
-			</div>
+				</div>
 		</nav>
 	</header>
 
 	<!--message at the bottom of the page/ footer-->
-	<div class="col-xs-12 col-md-2 pull-right">
-		<div class="alert alert-danger alert-dismissible" role="alert">
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			<strong>Error!</strong> Better check yourself, you're not looking too good.
-		</div>
-	</div>
-	<div class=col-xs-12>
-			<div ng-view></div>
-	</div>
+	<div ng-view></div>
 
 	<!-- my scripts to load -->
 	<script src="bower_components/angular/angular.js"></script>
 	<script src="bower_components/angular-route/angular-route.min.js"></script>
+	<script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
 	<script src="app/app.js"></script>
 	<script src="app/services/Theme/ThemeService.js"></script>
 	<script src="app/services/Commands/CommandService.js"></script>

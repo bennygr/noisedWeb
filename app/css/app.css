@@ -18,8 +18,42 @@
 .test{
 	background: yellow
 }
+.test2{
+	background: green
+}
+.test3{
+	background: red
+}
 
 .songPanel{
 	max-width: 350px;
 }
 
+.btn{
+	background: transparent;
+	/* CSS Transition */
+	-webkit-transition: background .2s ease-in-out, border .2s ease-in-out;
+	-moz-transition: background .2s ease-in-out, border .2s ease-in-out;
+	-ms-transition: background .2s ease-in-out, border .2s ease-in-out;
+	-o-transition: background .2s ease-in-out, border .2s ease-in-out;
+	transition: background .2s ease-in-out, border .2s ease-in-out;
+}
+
+.btn-circle {
+  width: 50px;
+  margin: 12px;
+  height: 50px;
+  text-align: center;
+  padding: 6px 0;
+  line-height: 1.428571429;
+  border-radius: 25px;
+}
+.btn-circle-sm {
+  width: 34px;
+  height: 34px;
+  margin: 5px;
+  text-align: center;
+  padding: 6px 0;
+  line-height: 1.428571429;
+  border-radius: 25px;
+}

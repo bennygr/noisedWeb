@@ -1,63 +1,65 @@
-<div class="container">
-	<div class=row>
-		<div class="col-xs-12 col-sm-4 col-sm-offset-4">
-			<img class="img-responsive center-block" ng-src="{{albumImage}}"/>
+<div class="jumbotron vertical-center">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-4 col-sm-offset-4">
+				<img class="img-responsive center-block" ng-src="{{albumImage}}"/>
+			</div>
 		</div>
-	</div>
-	<br>
-	<div class="row">
-		<div class="col-xs-12 col-sm-4 col-sm-offset-4">
-			<h5>Having a blast <small> <cite>, by Green Day</cite></small></h5>
-			<div class="progress">
-				<div class="progress-bar"
-						role="progressbar" 
-						aria-valuenow="100" 
-						aria-valuemin="0" 
-						aria-valuemax="100" 
-						style="width: 90%;">
-					<span class="sr-only">60% Complete</span>
-					<strong>2:17 / 3:27</strong>
+		<br>
+			<div class="row">
+				<div class="col-xs-12 col-sm-4 col-sm-offset-4">
+					<h5>Having a blast <small> <cite>, by Green Day</cite></small></h5>
+					<div class="progress">
+						<div class="progress-bar"
+								role="progressbar" 
+								aria-valuenow="100" 
+								aria-valuemin="0" 
+								aria-valuemax="100" 
+								style="width: 90%;">
+							<span class="sr-only">60% Complete</span>
+							<strong>2:17 / 3:27</strong>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-12 col-sm-4 col-sm-offset-4">
+					<div class="text-center">
+						<button type="button" class="btn btn-primary btn-circle-sm">
+							<span class="glyphicon glyphicon-random" aria-hidden="true"/>
+						</button>
+
+						<button type="button" class="btn btn-primary btn-circle-sm">
+							<span class="glyphicon glyphicon-step-backward" aria-hidden="true"/>
+						</button>
+
+						<button type="button" class="btn btn-primary btn-circle">
+							<span class="glyphicon glyphicon-play" aria-hidden="true"/>
+						</button>
+
+						<button type="button" class="btn btn-primary btn-circle-sm">
+							<span class="glyphicon glyphicon-step-forward" aria-hidden="true"/>
+						</button>
+
+						<!-- Single button -->
+						<div class="btn-group" dropdown is-open="status.isopen">
+							<button type="button"
+									class="btn btn-primary btn-circle-sm dropdown-toggle" dropdown-toggle ng-disabled="disabled">
+								...
+							</button>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#">Actiocn</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</div>
+
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-
-	<div class="row">
-		<div class="col-xs-12 col-sm-4 col-sm-offset-4">
-			<div class="text-center">
-				<button type="button" class="btn btn-primary btn-circle-sm">
-					<span class="glyphicon glyphicon-random" aria-hidden="true"/>
-				</button>
-
-				<button type="button" class="btn btn-primary btn-circle-sm">
-					<span class="glyphicon glyphicon-step-backward" aria-hidden="true"/>
-				</button>
-
-				<button type="button" class="btn btn-primary btn-circle">
-					<span class="glyphicon glyphicon-play" aria-hidden="true"/>
-				</button>
-
-				<button type="button" class="btn btn-primary btn-circle-sm">
-					<span class="glyphicon glyphicon-step-forward" aria-hidden="true"/>
-				</button>
-
-					<!-- Single button -->
-					<div class="btn-group" dropdown is-open="status.isopen">
-						<button type="button"
-								class="btn btn-primary btn-circle-sm dropdown-toggle" dropdown-toggle ng-disabled="disabled">
-							...
-						</button>
-						<ul class="dropdown-menu" role="menu">
-							<li><a href="#">Actiocn</a></li>
-							<li><a href="#">Another action</a></li>
-							<li><a href="#">Something else here</a></li>
-							<li class="divider"></li>
-							<li><a href="#">Separated link</a></li>
-						</ul>
-					</div>
-
-			</div>
-		</div>
-	</div>
 </div>
 

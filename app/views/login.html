@@ -1,65 +1,15 @@
-<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
-	<div class="panel panel-default">
-
-		<div class="panel-heading">
-			<span class="glyphicon glyphicon-music"> log in to noised<span>
-		</div>
-		<div class="loginPanel panel-body">
-			<form data-ng-submit="signin()" class="form-horizontal" autocomplete="off">
-				<fieldset>
-					<div class="form-group">
-						<!-- server -->
-						<label for="Server">Server:</label>
-						<input type="text" 
-								id="server" 
-								name="server" 
-								class="form-control" 
-								data-ng-model="credentials.server" 
-								placeholder="127.0.0.1">
-					</div>
-
-					<!-- description -->
-					<div class="form-group">
-						<!-- server -->
-						<label for="Description">Description:</label>
-						<input type="text" 
-								id="description" 
-								name="description" 
-								class="form-control" 
-								data-ng-model="credentials.description" 
-								placeholder="living room">
-					</div>
-
-					<!-- username -->
-					<div class="form-group">
-						<label for="username">Username</label>
-						<input type="text" 
-								id="username" 
-								name="username" 
-								class="form-control" 
-								data-ng-model="credentials.username" 
-								placeholder="Username">
-					</div>
-
-					<!-- password -->
-					<div class="form-group">
-						<label for="password">Password</label>
-						<input type="password" 
-								id="password" 
-								name="password" 
-								class="form-control" 
-								data-ng-model="credentials.password" 
-								placeholder="Password">
-					</div>
-					<div class="text-center form-group">
-						<button type="submit" ng-click="Login()"class="btn btn-primary">Sign in</button>
-					</div>
-					<div data-ng-show="error" class="text-center text-danger">
-						<strong data-ng-bind="error"></strong>
-					</div>
-				</fieldset>
-			</form>
-		</div>
+<div class="container">
+	<div class="jumbotron">
+		<h1>
+			I
+			<span class="glyphicon glyphicon-heart love" aria-hidden="true"></span>
+			Noised,
+		</h1>
+		<p>Noised is your friendly music player which lets you enyoy your favorite music where ever you like</p>
+		<br>
+		It seems like you have not created a connection to one of your noised stations yet.
+		<br>
+		<br>
+		<p><a class="btn btn-primary btn" href="#" role="button">Connect now</a></p>
 	</div>
 </div>
-

@@ -24,6 +24,11 @@ noisedWeb.config(function($routeProvider){
 			controller:  'PlayerCtrl',
 			hasBackgroundImage: true,
 			fallbackBackgroundImage: 'app/img/default.jpg'
+	})
+	.when('/settings',{
+			templateUrl: 'app/views/settings.html',
+			controller:  'SettingsCtrl',
+			hasBackgroundImage: false
 	});
 });
 

@@ -1,23 +1,63 @@
 <div class="container">
 
-		<div class="col-sm-12">
+		<div class="col-md-6 col-md-offset-3">
 			<div class="page-header">
 				<h1><span class="glyphicon glyphicon-cog"></span>&#160;&#160;Preferences</h1>
 			</div>
-			<h3><span class="glyphicon glyphicon-music"></span>&#160;&#160;Connections</h3>
+			<h3>
+				<span class="glyphicon glyphicon-music"></span>&#160;&#160;Connections
+				<div class="pull-right"> 
+					<button type="button" class="btn btn-primary" ng-click="">
+						<span class="glyphicon glyphicon-plus"></span>
+					</button>
+				</div>
+			</h3>
 			<hr>
+			<!-- connection list -->
 			<div class="list-group">
-				<a data-ng-repeat="diary in diaries" data-ng-href="#!/ggDiary/diaries/{{diary._id}}" class="list-group-item">
-					<h4 class="list-group-item-heading" data-ng-bind="diary.name"></h4>
-					<span style="color:#808080" class="glyphicon glyphicon-time"></span>
-					{{diary.created | date:'mediumDate'}} |
-					<span style="color:#808080" class="glyphicon glyphicon-comment"></span>
-					<small>{{diary.description}}</small>
-				</a>
+				<div data-ng-repeat="connectionSetting in connectionSettings" data-ng-href="" class="list-group-item">
+					<div class="list-group-item-heading">
+						<h4>
+							<span ng-show="connectionSetting.connected === true">
+								<span class="glyphicon glyphicon-headphones listIconConnected"></span>
+								&#160;&#160;
+							</span>
+							<span ng-show="connectionSetting.connected === false">
+								<span class="glyphicon glyphicon-flash listIconDisconnected"></span>
+								&#160;&#160;
+							</span>
+							{{connectionSetting.name}}
+							<div class="pull-right"> 
+								<button type="button bg" class="btn btn-primary btn-xs" ng-click="">
+									<span class="glyphicon glyphicon-edit"></span>
+								</button>
+							</div>
+						</h4>
+					</div>
+					<span class="glyphicon glyphicon-user listIcon"></span>&#160;&#160;{{connectionSetting.user}} &#160;&#160;
+					<span class="glyphicon glyphicon-link listIcon"></span>&#160;&#160;{{connectionSetting.host}} &#160;&#160;
+				</div>
 			</div>
 			<br>
 			<br>
+			<!-- Appearance settings -->
 			<h3><span class="glyphicon glyphicon-modal-window"></span>&#160;&#160;Appearance</h3>
 			<hr>
+			<!-- Theme -->
+			Current UI theme:&#160;&#160;&#160;&#160;
+			<span class="dropdown" dropdown on-toggle="toggled(open)">
+				<button type="button" class="btn btn-primary dropdown-toggle" dropdown-toggle ng-disabled="disabled">
+					{{currentTheme.name}}<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li ng-repeat="theme in themes">
+						<a href ng-click="setTheme(theme)">{{theme.name}}</a>
+					</li>
+				</ul>
+			</span>
+			<br><br><br>
+			<br><br><br>
+			<br><br><br>
+			<br><br><br>
 		</div>
 </div>

@@ -8,6 +8,16 @@
 	color: red;
 }
 
+.listIcon{
+	color:#808080;
+}
+.listIconConnected{
+	color: green;
+}
+.listIconDisconnected{
+	color: red;
+}
+
 .loginPanel{
 	padding: 20px;
 }

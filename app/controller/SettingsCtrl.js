@@ -1,23 +1,18 @@
-noisedWeb.controller('SettingsCtrl', function($scope,Theme){
-	$scope.Test = "Hello Benny"
-
+noisedWeb.controller('SettingsCtrl', function($scope,$modal,Theme,ConnectionSettings){
 	$scope.themes = Theme.getThemes();
-
 	$scope.currentTheme = Theme.getCurrentTheme();
+	$scope.connectionSettings = ConnectionSettings.getSettings();
+	ConnectionSettings.clearSettings();
+
+	$scope.createConnectionSettings = function(templateUrl){
+		var modalInstance = $modal.open({
+				templateUrl: templateUrl,
+				controller: 'NewConnectionSettingsCtrl',
+		})
+	};
 
 	$scope.setTheme = function(theme){
 		$scope.currentTheme = theme;
 		Theme.setCurrentTheme(theme);
 	};
-
-	$scope.connectionSettings = [{name: "Living room",
-								  host: "192.168.1.12", 
-								  connected: false, 
-								  user: "benny"},
-
-							      {name: "Kitchen",
-								  host: "192.168.1.122",
-								  user: "benny",
-								  connected: true,}, 
-								  ];
 });

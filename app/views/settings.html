@@ -7,7 +7,7 @@
 			<h3>
 				<span class="glyphicon glyphicon-music"></span>&#160;&#160;Connections
 				<div class="pull-right"> 
-					<button type="button" class="btn btn-primary" ng-click="">
+					<button type="button" class="btn btn-primary" ng-click="createConnectionSettings('app/views/NewConnectionSettingsTemplate.html')">
 						<span class="glyphicon glyphicon-plus"></span>
 					</button>
 				</div>
@@ -34,7 +34,7 @@
 							</div>
 						</h4>
 					</div>
-					<span class="glyphicon glyphicon-user listIcon"></span>&#160;&#160;{{connectionSetting.user}} &#160;&#160;
+					<span class="glyphicon glyphicon-user listIcon"></span>&#160;&#160;{{connectionSetting.id}} &#160;&#160;
 					<span class="glyphicon glyphicon-link listIcon"></span>&#160;&#160;{{connectionSetting.host}} &#160;&#160;
 				</div>
 			</div>

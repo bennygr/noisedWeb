@@ -1,12 +1,3 @@
-//A connection to a server
-function Connection(url, port, description, username, password, socket){
-	this.url = url;
-	this.port = port;
-	this.description = description;
-	this.password = password;
-	this.socket = socket;
-}
-
 //A connection service can handle multiple connections 
 //to varios noised daemons (for example: "living room", "Kitchen", etc)
 noisedWeb.factory('ConnectionManager',function(Command){

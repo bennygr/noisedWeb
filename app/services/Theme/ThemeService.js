@@ -27,6 +27,10 @@ noisedWeb.factory('Theme',function(){
 		{ 
 			name: "flatly",
           	path: "bower_components/bootstrap/dist/css/flatly.min.css",
+		},	
+		{ 
+			name: "bootstrap",
+          	path: null,
 		}	
   	];
 

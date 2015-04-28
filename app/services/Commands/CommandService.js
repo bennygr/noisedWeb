@@ -30,6 +30,16 @@ noisedWeb.factory('Command',function(){
 			responseCallbacks.push(callback);
 		},
 
+		unregisterResponseCallback: function(responseCallback){
+			for(var i=0;i<responseCallbacks.length; i++){
+				var callback = responseCallbacks[i];
+				if(callback.callback == responseCallback){
+					responseCallbacks.slice(i,1);
+					break;
+				}
+			}
+		},
+
 		//sends a command to a server
 		sendCommand: function(connection, command){
 			command.protocolVersion = protocolVersion;

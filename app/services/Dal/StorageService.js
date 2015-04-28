@@ -1,12 +1,13 @@
 
-noisedWeb.factory('Storage',function(Command){
+noisedWeb.factory('Storage',function(){
 	var keyBase =  "noised_preferences_";
 	return{
 		getSettings: function(name){
 			key = keyBase + name;
 			var settingsString = localStorage.getItem(key);
-			if(settingsString != null)
+			if(settingsString){
 				return JSON.parse(settingsString);
+			}
 			return [];
 		},
 

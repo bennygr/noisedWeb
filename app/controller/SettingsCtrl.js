@@ -1,8 +1,8 @@
-noisedWeb.controller('SettingsCtrl', function($scope,$modal,Theme,ConnectionSettings){
+noisedWeb.controller('SettingsCtrl', function($scope,$modal,Theme,ConnectionSettingsStorage){
 	$scope.themes = Theme.getThemes();
 	$scope.currentTheme = Theme.getCurrentTheme();
-	$scope.connectionSettings = ConnectionSettings.getSettings();
-	ConnectionSettings.clearSettings();
+	$scope.connectionSettings = ConnectionSettingsStorage.getAllSettings();
+	alert($scope.connectionSettings.length);
 
 	$scope.createConnectionSettings = function(templateUrl){
 		var modalInstance = $modal.open({

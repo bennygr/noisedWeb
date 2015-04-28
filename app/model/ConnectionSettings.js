@@ -1,7 +1,7 @@
 //Contains parameter which describes a server
-function ConnectionParameter(url, description, username, password){
+function ConnectionSettings(host, description, username, password){
 	this.id = new Date().getTime();
-	this.url = url;
+	this.host = host;
 	this.description = description;
 	this.username = username;
 	this.password = password;

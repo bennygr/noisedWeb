@@ -1,3 +1,44 @@
-<div class="container">
-	<h1> New connection </div>
+<div class="modal-header">
+	<h3 class="modal-title">New connection</h3>
+</div>
+<div class="modal-body">
+	<form role="form">
+		<div class="form-group">
+			<label for="host">Host:</label>
+			<input type="text" 
+				   class="form-control"
+				   id="host" 
+				   placeholder="Enter Hostname or IP-Adresse" 
+				   ng-model="host">
+		</div>
+		<div class="form-group">
+			<label for="description">Description:</label>
+			<input type="text" 
+				   class="form-control" 
+				   id="description" 
+				   ng-model="description"
+				   placeholder="for example: Living room">
+		</div>
+		<div class="form-group">
+			<label for="username">Username:</label>
+			<input type="text" 
+				   class="form-control" 
+				   id="username" 
+				   ng-model="username"
+				   placeholder="Enter username">
+		</div>
+		<div class="form-group">
+			<label for="pwd">Password:</label>
+			<input type="password" 
+				   class="form-control" 
+				   id="pwd" 
+				   ng-model="password"
+				   placeholder="Enter password">
+		</div>
+	</form>
+	<div class="alert alert-danger" ng-show="errorMessage != null" role="alert">{{errorMessage}}</div>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" ng-click="connect()">Connect</button>
+	<button class="btn btn-warning" ng-click="cancel()">Cancel</button>
 </div>

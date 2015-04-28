@@ -19,8 +19,9 @@ noisedWeb.factory('ConnectionManager',function(Command){
 
 		//Connects to a server
 		connectToServer: 
-		function(url, port, description, username, password, errorClb, closeClb){ 
-
+		function(connectionIdentifier, host, description, username, password, errorClb, closeClb){ 
+			var port = 1338;
+			var url = "ws://" + host;
 			var fullUrl = url + ":" + port;
 			var socket = new WebSocket(fullUrl);
 			socket.binaryType = "arrayBuffer";
@@ -32,7 +33,8 @@ noisedWeb.factory('ConnectionManager',function(Command){
 								   description,
 								   username,
 								   password,
-								   socket);
+								   socket,
+								   connectionIdentifier);
 				connectionList.push(connection);
 
 				//Sending a login to the server
@@ -59,7 +61,9 @@ noisedWeb.factory('ConnectionManager',function(Command){
 					connectionList.splice(index,1);
 				}
 
-				closeClb(closeConnection,event.code);
+				if(closeClb != null){
+					closeClb(closeConnection,event.code);
+				}
 			}
 
 			socket.onerror = function(error) {
@@ -75,8 +79,9 @@ noisedWeb.factory('ConnectionManager',function(Command){
 				}
 
 				//Callback
-				errorClb(errorConnection,error);
-
+				if(errorClb != null){
+					errorClb(errorConnection,error);
+				}
 			};
 
 			socket.onmessage = function(message){

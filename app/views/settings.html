@@ -2,46 +2,42 @@
 
 		<div class="col-md-6 col-md-offset-3">
 			<div class="page-header">
-				<h1><span class="glyphicon glyphicon-cog"></span>&#160;&#160;Preferences</h1>
+				<h3><span class="glyphicon glyphicon-cog"></span>&#160;&#160;Preferences</h3>
 			</div>
-			<h3>
+			<h4>
 				<span class="glyphicon glyphicon-music"></span>&#160;&#160;Connections
 				<div class="pull-right"> 
 					<button type="button" class="btn btn-primary" ng-click="createConnectionSettings('app/views/NewConnectionSettingsTemplate.html')">
 						<span class="glyphicon glyphicon-plus"></span>
 					</button>
 				</div>
-			</h3>
+			</h4>
 			<hr>
 			<!-- connection list -->
 			<div class="list-group">
 				<div data-ng-repeat="connectionSetting in connectionSettings" data-ng-href="" class="list-group-item">
 					<div class="list-group-item-heading">
-						<h4>
-							<span ng-show="connectionSetting.connected === true">
-								<span class="glyphicon glyphicon-headphones listIconConnected"></span>
-								&#160;&#160;
-							</span>
-							<span ng-show="connectionSetting.connected === false">
-								<span class="glyphicon glyphicon-flash listIconDisconnected"></span>
-								&#160;&#160;
-							</span>
-							{{connectionSetting.name}}
+						<h5>
+							{{connectionSetting.host}}
 							<div class="pull-right"> 
 								<button type="button bg" class="btn btn-primary btn-xs" ng-click="">
 									<span class="glyphicon glyphicon-edit"></span>
 								</button>
+								<button type="button bg" class="btn btn-primary btn-xs" ng-click="">
+									<span class="glyphicon glyphicon-trash"></span>
+								</button>
 							</div>
-						</h4>
+						</h5>
 					</div>
-					<span class="glyphicon glyphicon-user listIcon"></span>&#160;&#160;{{connectionSetting.id}} &#160;&#160;
+					<span class="glyphicon glyphicon-user listIcon"></span>&#160;&#160;{{connectionSetting.username}} &#160;&#160;
 					<span class="glyphicon glyphicon-link listIcon"></span>&#160;&#160;{{connectionSetting.host}} &#160;&#160;
+					<span class="glyphicon glyphicon-tag listIcon"></span>&#160;&#160;{{connectionSetting.description}} &#160;&#160;
 				</div>
 			</div>
 			<br>
 			<br>
 			<!-- Appearance settings -->
-			<h3><span class="glyphicon glyphicon-modal-window"></span>&#160;&#160;Appearance</h3>
+			<h5><span class="glyphicon glyphicon-modal-window"></span>&#160;&#160;Appearance</h5>
 			<hr>
 			<!-- Theme -->
 			Current UI theme:&#160;&#160;&#160;&#160;

@@ -5,7 +5,7 @@
 				<h3><span class="glyphicon glyphicon-cog"></span>&#160;&#160;Preferences</h3>
 			</div>
 			<h4>
-				<span class="glyphicon glyphicon-music"></span>&#160;&#160;Connections
+				<span class="glyphicon glyphicon-bookmark"></span>&#160;&#160;Connections
 				<div class="pull-right"> 
 					<button type="button" class="btn btn-primary" ng-click="createConnectionSettings('app/views/NewConnectionSettingsTemplate.html')">
 						<span class="glyphicon glyphicon-plus"></span>
@@ -16,22 +16,23 @@
 			<!-- connection list -->
 			<div class="list-group">
 				<div data-ng-repeat="connectionSetting in connectionSettings" data-ng-href="" class="list-group-item">
-					<div class="list-group-item-heading">
-						<h5>
-							{{connectionSetting.host}}
+					<div class="row">
+						<div class="col-xs-10">
+							{{connectionSetting.description}}
+							<span class="glyphicon glyphicon-user listIcon"></span>&#160;&#160;{{connectionSetting.username}} &#160;&#160;
+							<span class="glyphicon glyphicon-link listIcon"></span>&#160;&#160;{{connectionSetting.host}} &#160;&#160;
+						</div>
+						<div class="col-xs-2">
 							<div class="pull-right"> 
 								<button type="button bg" class="btn btn-primary btn-xs" ng-click="">
 									<span class="glyphicon glyphicon-edit"></span>
 								</button>
-								<button type="button bg" class="btn btn-primary btn-xs" ng-click="">
+								<button type="button bg" class="btn btn-primary btn-xs" ng-click="removeConnectionSettings(connectionSetting)">
 									<span class="glyphicon glyphicon-trash"></span>
 								</button>
 							</div>
-						</h5>
+						</div>
 					</div>
-					<span class="glyphicon glyphicon-user listIcon"></span>&#160;&#160;{{connectionSetting.username}} &#160;&#160;
-					<span class="glyphicon glyphicon-link listIcon"></span>&#160;&#160;{{connectionSetting.host}} &#160;&#160;
-					<span class="glyphicon glyphicon-tag listIcon"></span>&#160;&#160;{{connectionSetting.description}} &#160;&#160;
 				</div>
 			</div>
 			<br>

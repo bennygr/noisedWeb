@@ -2,7 +2,6 @@ noisedWeb.controller('SettingsCtrl', function($scope,$modal,Theme,ConnectionSett
 	$scope.themes = Theme.getThemes();
 	$scope.currentTheme = Theme.getCurrentTheme();
 	$scope.connectionSettings = ConnectionSettingsStorage.getAllSettings();
-	alert($scope.connectionSettings.length);
 
 	$scope.createConnectionSettings = function(templateUrl){
 		var modalInstance = $modal.open({
@@ -10,6 +9,13 @@ noisedWeb.controller('SettingsCtrl', function($scope,$modal,Theme,ConnectionSett
 				controller: 'NewConnectionSettingsCtrl',
 		})
 	};
+
+	$scope.removeConnectionSettings = function(connectionSettings){
+		//remove the settings object
+		ConnectionSettingsStorage.removeSetings(connectionSettings);
+		//reload settings
+		$scope.connectionSettings = ConnectionSettingsStorage.getAllSettings();
+	}
 
 	$scope.setTheme = function(theme){
 		$scope.currentTheme = theme;

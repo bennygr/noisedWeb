@@ -1,5 +1,5 @@
 <div class="modal-header">
-	<h3 class="modal-title">New connection</h3>
+	<h3 class="modal-title">{{title}}</h3>
 </div>
 <div class="modal-body">
 	<form role="form">
@@ -39,6 +39,6 @@
 	<div class="alert alert-danger" ng-show="errorMessage != null" role="alert">{{errorMessage}}</div>
 </div>
 <div class="modal-footer">
-	<button class="btn btn-primary" ng-click="connect()">Connect</button>
+	<button class="btn btn-primary" ng-click="connect()">Save</button>
 	<button class="btn btn-warning" ng-click="cancel()">Cancel</button>
 </div>

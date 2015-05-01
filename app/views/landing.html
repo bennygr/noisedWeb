@@ -1,0 +1,22 @@
+<div class="container">
+	<div class="jumbotron">
+		<h1>
+			We 
+			<span class="glyphicon glyphicon-heart love" aria-hidden="true"></span>
+			Noised, <small>the awesome music player</small>
+		</h1>
+		<br>
+		<br>
+			<p ng-show="!connectionsAvailable">
+				No bookmarked connections yet, 
+				why don't you  head over to the
+				<a  href="#settings" 
+					ng-click="createConnectionSettings('app/views/createConnectionSettings.html')">preferences</a> 
+					and create one? 
+			</p>
+
+			<button class="btn btn-primary" ng-click="test()">Test</button>
+		<br>
+		<br>
+	</div>
+</div>

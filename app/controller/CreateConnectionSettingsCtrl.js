@@ -1,16 +1,25 @@
 
-noisedWeb.controller('NewConnectionSettingsCtrl', 
+noisedWeb.controller('CreateConnectionSettingsCtrl', 
 					 function($scope,
 							  $modalInstance,
 							  ConnectionManager,
 							  ConnectionSettingsStorage,
-							  Command){
+							  Command,
+							  items){
 	
+	$scope.title = "New connection";
 	$scope.errorMessage = null;
 	$scope.host = null;
 	$scope.description = null;
 	$scope.username = null;
 	$scope.password = null;
+	if(items){
+		$scope.title = "Edit connection";
+		$scope.host = items.host;
+		$scope.description = items.description;
+		$scope.username = items.username;
+		$scope.password = items.password;
+	}
 	var connectionIdentifier = new Date().getTime();
 
 	var errorCallback = function(connection, response){
@@ -26,22 +35,15 @@ noisedWeb.controller('NewConnectionSettingsCtrl',
 			//connected and we are going to store the connection settings
 			Command.unregisterResponseCallback(welcomeCallback);
 
-			var existingSettings = ConnectionSettingsStorage.getSettingsForHost($scope.host);
-			if(existingSettings){
-				$scope.errorMessage = "Connection to this host already exists";
-			}
-			else{
-				var connectionSettings = 
-					new ConnectionSettings($scope.host,
-						$scope.description,
-						$scope.username,
-						$scope.password);
-				ConnectionSettingsStorage.addSettings(connectionSettings);
-				//var test  = JSON.stringify(connectionSettings);
-			}
-
-
+			//Save new settings
+			var connectionSettings = 
+				new ConnectionSettings($scope.host,
+					$scope.description,
+					$scope.username,
+					$scope.password);
+			ConnectionSettingsStorage.addSettings(connectionSettings);
 			$scope.$digest();
+			$modalInstance.close();
 		}
 	};
 
@@ -67,6 +69,22 @@ noisedWeb.controller('NewConnectionSettingsCtrl',
 		}
 		else{
 			$scope.errorMessage = null;
+			
+			//deleting existing settings if existing
+			var existingSettings = ConnectionSettingsStorage.getSettingsForHost($scope.host);
+			if(existingSettings){
+				
+				//Check if we have an active connection and disconnect
+				var con = ConnectionManager.getConnectionByHost(existingSettings.host);
+				if(con){
+					ConnectionManager.disconnectFromServer(con);
+				}
+
+				//Remove existing settings object
+				ConnectionSettingsStorage.removeSetings(existingSettings);
+			}
+
+			//Establish a new connection
 			ConnectionManager.connectToServer(connectionIdentifier,
 											  $scope.host,
 											  $scope.description,
@@ -82,7 +100,6 @@ noisedWeb.controller('NewConnectionSettingsCtrl',
 														"Server closed connection";
 													$scope.$digest();
 			});
-											  
 		}
 	};
 });

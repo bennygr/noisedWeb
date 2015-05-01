@@ -1,8 +1,9 @@
 //An active connection to a noised server
-function Connection(url, port, description, username, password, socket, connectionIdentifier){
+function Connection(host, port, url, description, username, password, socket, connectionIdentifier){
 	this.id = new Date().getTime();
-	this.url = url;
+	this.host = host;
 	this.port = port;
+	this.url = url;
 	this.description = description;
 	this.password = password;
 	this.socket = socket;

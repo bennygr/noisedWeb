@@ -13,8 +13,8 @@ noisedWeb.config(function($routeProvider){
 	//Using default error message view
 	//login
 	.when('/',{
-			templateUrl: 'app/views/login.html',
-			controller:  'LoginCtrl',
+			templateUrl: 'app/views/landing.html',
+			controller:  'LandingCtrl',
 			hasBackgroundImage: true,
 			forcedBackgroundImage: 'app/img/login.jpg'
 	})
@@ -32,3 +32,27 @@ noisedWeb.config(function($routeProvider){
 	});
 });
 
+
+/**
+ * Executoted when the app starts
+ */
+noisedWeb.run(function($rootScope,
+					   ConnectionSettingsStorage,
+					   ConnectionManager){
+					   
+	//Automatic connect all known bookmarks on startup
+	(function (){
+		var connectionSettings = ConnectionSettingsStorage.getAllSettings();
+		for(var i=0; i<connectionSettings.length; i++){
+			var settings = connectionSettings[i];
+			ConnectionManager.connectToServer(new Date().getTime(),
+											  settings.host,
+											  settings.description,
+											  settings.username,
+											  settings.password,
+											  null, //we don't hanle errors due on startup
+											  null);//we don't hanle errors due on startup
+		}
+	})();
+
+});

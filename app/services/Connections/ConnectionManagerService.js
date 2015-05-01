@@ -7,17 +7,35 @@ noisedWeb.factory('ConnectionManager',function(Command){
 
 	return{
 
-		//Gets the current active connection
+		/*
+		 * Returns a set of current connections
+		 */
 		getCurrentConnection: function(){
 			return currentConnection;
 		},
 
-		//Sets the current active connection
+		/**
+		 * returns a connected connection by host
+		 */
+		getConnectionByHost: function(host){
+			for(var i=0;i<connectionList.length; i++){
+				var current = connectionList[i];
+				if(current.host === host){
+					return current;
+				}
+			}
+		},
+
+		/**
+		 * sets the current active main connection
+		 */
 		setCurrentConnection: function(connection){
 			currentConnection = connection;
 		},
 
-		//Connects to a server
+		/**
+		 * Connectes to a server
+		 */
 		connectToServer: 
 		function(connectionIdentifier, host, description, username, password, errorClb, closeClb){ 
 			var port = 1338;
@@ -28,14 +46,17 @@ noisedWeb.factory('ConnectionManager',function(Command){
 
 			socket.onopen = function(){
 				var connection = 
-					new Connection(url,
+					new Connection(host,
 								   port,
+								   url,
 								   description,
 								   username,
 								   password,
 								   socket,
 								   connectionIdentifier);
 				connectionList.push(connection);
+
+				currentConnection = connection;
 
 				//Sending a login to the server
 				Command.sendCommand(
@@ -92,6 +113,19 @@ noisedWeb.factory('ConnectionManager',function(Command){
 						Command.announceResponse(connection,response);
 						break;
 					}
+				}
+			}
+		},
+
+		/**
+		 * Closes a connection 
+		 */
+		disconnectFromServer: function(connection){
+			for(var i=0;i<connectionList.length; i++){
+				var current = connectionList[i];
+				if(current === connection){
+					current.socket.close();
+					break;
 				}
 			}
 		}

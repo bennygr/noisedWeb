@@ -18,66 +18,63 @@
 								<div class="navbar-header">
 									<p class="navbar-brand"> 
 										<img alt="Brand" src="http://www.music-school-berlin.de/uploads/4/0/2/8/402868/3533818.png?32"/>
-										</p>
-										<button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
-											<span class="icon-bar"></span>
-											<span class="icon-bar"></span>
-											<span class="icon-bar"></span>
-										</button>
-									</div>
+									</p>
+									<button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+									</button>
+								</div>
+								<div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
+									<ul class="nav navbar-nav navbar-right" >
 
-									<div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
-										<ul class="nav navbar-nav navbar-right" >
-											<li>
-												<!-- Single button -->
-												<div class="btn-group" dropdown is-open="status.isopen">
-													<button type="button" class="btn btn-primary dropdown-toggle" dropdown-toggle ng-disabled="disabled">
-														<span class="glyphicon glyphicon-home" aria-hidden="true"> 
-														Wohnzimmer <span class="caret"></span>
-													</button>
-													<ul class="dropdown-menu" role="menu">
-														<li><a href="#">Action</a></li>
-														<li><a href="#">Another action</a></li>
-														<li><a href="#">Something else here</a></li>
-														<li class="divider"></li>
-														<li><a href="#">Separated link</a></li>
-													</ul>
-												</div>
-												</a>
-											</li>
-											<li> <a href="#/"> <span class="glyphicon glyphicon-heart" aria-hidden="true"> Highlights</span></a> </li>
-											<li> <a href="#player"> <span class="glyphicon glyphicon-headphones" aria-hidden="true"> Player</span></a> </li>
-											<li> <a href="#browser"> <span class="glyphicon glyphicon-music" aria-hidden="true"> My Music</span></a> </li>
-											<li> <a href="#queue"> <span class="glyphicon glyphicon-indent-left" aria-hidden="true"> Queue</span> </a> </li>
-											<li> <a href="#playlists"> <span class="glyphicon glyphicon-list-alt" aria-hidden="true"> Playlists</span> </a> </li>
-											<li> <a href="#settings"> <span class="glyphicon glyphicon-cog" aria-hidden="true"> Preferences</span></a> </li>
-										</ul>
-									</div>
+
+										<li> <a href="#/"> <span class="glyphicon glyphicon-heart" aria-hidden="true"> Highlights</span></a> </li>
+										<li> <a href="#player"> <span class="glyphicon glyphicon-headphones" aria-hidden="true"> Player</span></a> </li>
+										<li> <a href="#browser"> <span class="glyphicon glyphicon-music" aria-hidden="true"> My Music</span></a> </li>
+										<li> <a href="#queue"> <span class="glyphicon glyphicon-indent-left" aria-hidden="true"> Queue</span> </a> </li>
+										<li> <a href="#playlists"> <span class="glyphicon glyphicon-list-alt" aria-hidden="true"> Playlists</span> </a> </li>
+										<li> <a href="#settings"> <span class="glyphicon glyphicon-cog" aria-hidden="true"> Preferences</span></a> </li>
+										<li class="dropdown"dropdown is-open="status.isopen">
+											<a href class="dropdown-toggle" dropdown-toggle ng-disabled="disabled">
+												<span class="glyphicon glyphicon-home" aria-hidden="true"> Wohnzimmer</span>
+												<span class="caret"></span>
+											</a>
+											<ul class="dropdown-menu" role="menu">
+												<li><a href>Küche</a></li>
+												<li><a href>Wohnzimmer</a></li>
+												<li><a href>Badezimmer</a></li>
+												<li class="divider"></li>
+												<li><a href>New connection</a></li>
+											</ul>
+										</li>
+									</ul>
 								</div>
 							</div>
-						</nav>
-					</header>
+						</div>
+					</nav>
+				</header>
 
-					<!--message at the bottom of the page/ footer-->
-					<div ng-view></div>
+				<!--message at the bottom of the page/ footer-->
+				<div ng-view></div>
 
-					<!-- my scripts to load -->
-					<script src="bower_components/angular/angular.js"></script>
-					<script src="bower_components/angular-route/angular-route.min.js"></script>
-					<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-					<script src="app/app.js"></script>
-					<script src="app/model/ConnectionSettings.js"></script>
-					<script src="app/model/Connection.js"></script>
-					<script src="app/services/Theme/ThemeService.js"></script>
-					<script src="app/services/Commands/CommandService.js"></script>
-					<script src="app/services/BackgroundImage/BackgroundImageService.js"></script>
-					<script src="app/services/Connections/ConnectionManagerService.js"></script>
-					<script src="app/services/Settings/ConnectionSettingsStorageService.js"></script>
-					<script src="app/services/Dal/StorageService.js"></script>
-					<script src="app/controller/MainCtrl.js"></script>
-					<script src="app/controller/LandingCtrl.js"></script>
-					<script src="app/controller/PlayerCtrl.js"></script>
-					<script src="app/controller/CreateConnectionSettingsCtrl.js"></script>
-					<script src="app/controller/SettingsCtrl.js"></script>
-				</body>
-			</html>
+				<!-- my scripts to load -->
+				<script src="bower_components/angular/angular.js"></script>
+				<script src="bower_components/angular-route/angular-route.min.js"></script>
+				<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+				<script src="app/app.js"></script>
+				<script src="app/model/ConnectionSettings.js"></script>
+				<script src="app/model/Connection.js"></script>
+				<script src="app/services/Theme/ThemeService.js"></script>
+				<script src="app/services/Commands/CommandService.js"></script>
+				<script src="app/services/BackgroundImage/BackgroundImageService.js"></script>
+				<script src="app/services/Connections/ConnectionManagerService.js"></script>
+				<script src="app/services/Settings/ConnectionSettingsStorageService.js"></script>
+				<script src="app/services/Dal/StorageService.js"></script>
+				<script src="app/controller/MainCtrl.js"></script>
+				<script src="app/controller/LandingCtrl.js"></script>
+				<script src="app/controller/PlayerCtrl.js"></script>
+				<script src="app/controller/CreateConnectionSettingsCtrl.js"></script>
+				<script src="app/controller/SettingsCtrl.js"></script>
+			</body>
+		</html>

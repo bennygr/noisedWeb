@@ -17,8 +17,7 @@
 							<div class="container-fluid">
 								<div class="navbar-header">
 									<p class="navbar-brand"> 
-										<img alt="Brand" 
-src="http://www.music-school-berlin.de/uploads/4/0/2/8/402868/3533818.png?32"/>
+										<img alt="Brand" src="http://www.music-school-berlin.de/uploads/4/0/2/8/402868/3533818.png?32"/>
 										</p>
 										<button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
 											<span class="icon-bar"></span>
@@ -29,7 +28,23 @@ src="http://www.music-school-berlin.de/uploads/4/0/2/8/402868/3533818.png?32"/>
 
 									<div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
 										<ul class="nav navbar-nav navbar-right" >
-											<li> <a href="#/"> <span class="glyphicon glyphicon-home" aria-hidden="true"> Wohnzimmer</span></a> </li>
+											<li>
+												<!-- Single button -->
+												<div class="btn-group" dropdown is-open="status.isopen">
+													<button type="button" class="btn btn-primary dropdown-toggle" dropdown-toggle ng-disabled="disabled">
+														<span class="glyphicon glyphicon-home" aria-hidden="true"> 
+														Wohnzimmer <span class="caret"></span>
+													</button>
+													<ul class="dropdown-menu" role="menu">
+														<li><a href="#">Action</a></li>
+														<li><a href="#">Another action</a></li>
+														<li><a href="#">Something else here</a></li>
+														<li class="divider"></li>
+														<li><a href="#">Separated link</a></li>
+													</ul>
+												</div>
+												</a>
+											</li>
 											<li> <a href="#/"> <span class="glyphicon glyphicon-heart" aria-hidden="true"> Highlights</span></a> </li>
 											<li> <a href="#player"> <span class="glyphicon glyphicon-headphones" aria-hidden="true"> Player</span></a> </li>
 											<li> <a href="#browser"> <span class="glyphicon glyphicon-music" aria-hidden="true"> My Music</span></a> </li>

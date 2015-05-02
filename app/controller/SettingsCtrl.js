@@ -41,7 +41,7 @@ noisedWeb.controller('SettingsCtrl', function($scope,
 	$scope.editConnectionSettings = function(templateUrl,connectionSettings){
 		var modalInstance = $modal.open({
 				templateUrl: templateUrl,
-				controller: 'NewConnectionSettingsCtrl',
+				controller: 'CreateConnectionSettingsCtrl',
 				resolve: {
 					items: function () {
 						return connectionSettings;

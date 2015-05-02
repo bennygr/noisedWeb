@@ -1,64 +1,68 @@
 <!doctype html>
 <html ng-app="noisedWeb" ng-controller="MainCtrl">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Hello World</title>
-	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
-	<link rel="stylesheet" ng-href="{{theme.path}}"/>
-	<link rel="stylesheet" href="app/css/app.css"/>
-</head>
-<!-- <body ng-style="{'background':'url('+poster+') no-repeat center center fixed', 'background-size':'cover','height':'100%'}"> -->
-<body>
-	<!-- HEADER AND NAVBAR -->
-	<header>
-		<nav class="navbar navbar-default">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" ng-show="!navCollapsde" href="/">Noised Music Player daemon</a>
-				</div>
+	<head>
+		<meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+				<meta name="viewport" content="width=device-width, initial-scale=1">
+					<title>Noised</title>
+					<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+					<link rel="stylesheet" ng-href="{{theme.path}}"/>
+					<link rel="stylesheet" href="app/css/app.css"/>
+				</head>
+				<!-- <body ng-style="{'background':'url('+poster+') no-repeat center center fixed', 'background-size':'cover','height':'100%'}"> -->
+				<body>
+					<!-- HEADER AND NAVBAR -->
+					<header>
+						<nav class="navbar navbar-default">
+							<div class="container-fluid">
+								<div class="navbar-header">
+									<p class="navbar-brand"> 
+										<img alt="Brand" 
+src="http://www.music-school-berlin.de/uploads/4/0/2/8/402868/3533818.png?32"/>
+										</p>
+										<button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+											<span class="icon-bar"></span>
+											<span class="icon-bar"></span>
+											<span class="icon-bar"></span>
+										</button>
+									</div>
 
+									<div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
+										<ul class="nav navbar-nav navbar-right" >
+											<li> <a href="#/"> <span class="glyphicon glyphicon-home" aria-hidden="true"> Wohnzimmer</span></a> </li>
+											<li> <a href="#/"> <span class="glyphicon glyphicon-heart" aria-hidden="true"> Highlights</span></a> </li>
+											<li> <a href="#player"> <span class="glyphicon glyphicon-headphones" aria-hidden="true"> Player</span></a> </li>
+											<li> <a href="#browser"> <span class="glyphicon glyphicon-music" aria-hidden="true"> My Music</span></a> </li>
+											<li> <a href="#queue"> <span class="glyphicon glyphicon-indent-left" aria-hidden="true"> Queue</span> </a> </li>
+											<li> <a href="#playlists"> <span class="glyphicon glyphicon-list-alt" aria-hidden="true"> Playlists</span> </a> </li>
+											<li> <a href="#settings"> <span class="glyphicon glyphicon-cog" aria-hidden="true"> Preferences</span></a> </li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</nav>
+					</header>
 
-				<div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
-				<ul class="nav navbar-nav navbar-right" >
-					<li> <a href="#/"> <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> </a> </li>
-					<li> <a href="#player"> <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span> </a> </li>
-					<li> <a href="#browser"> <span class="glyphicon glyphicon-music" aria-hidden="true"></span> </a> </li>
-					<li> <a href="#queue"> <span class="glyphicon glyphicon-indent-left" aria-hidden="true"></span> </a> </li>
-					<li> <a href="#playlists"> <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> </a> </li>
-					<li> <a href="#search"> <span class="glyphicon glyphicon-search" aria-hidden="true"></span> </a> </li>
-					<li> <a href="#user"> <span class="glyphicon glyphicon-user" aria-hidden="true"></span> </a> </li>
-					<li> <a href="#settings"> <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> </a> </li>
-				</ul>
-				</div>
-		</nav>
-	</header>
+					<!--message at the bottom of the page/ footer-->
+					<div ng-view></div>
 
-	<!--message at the bottom of the page/ footer-->
-	<div ng-view></div>
-
-	<!-- my scripts to load -->
-	<script src="bower_components/angular/angular.js"></script>
-	<script src="bower_components/angular-route/angular-route.min.js"></script>
-	<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-	<script src="app/app.js"></script>
-	<script src="app/model/ConnectionSettings.js"></script>
-	<script src="app/model/Connection.js"></script>
-	<script src="app/services/Theme/ThemeService.js"></script>
-	<script src="app/services/Commands/CommandService.js"></script>
-	<script src="app/services/BackgroundImage/BackgroundImageService.js"></script>
-	<script src="app/services/Connections/ConnectionManagerService.js"></script>
-	<script src="app/services/Settings/ConnectionSettingsStorageService.js"></script>
-	<script src="app/services/Dal/StorageService.js"></script>
-	<script src="app/controller/MainCtrl.js"></script>
-	<script src="app/controller/LandingCtrl.js"></script>
-	<script src="app/controller/PlayerCtrl.js"></script>
-	<script src="app/controller/CreateConnectionSettingsCtrl.js"></script>
-	<script src="app/controller/SettingsCtrl.js"></script>
-</body>
-</html>
+					<!-- my scripts to load -->
+					<script src="bower_components/angular/angular.js"></script>
+					<script src="bower_components/angular-route/angular-route.min.js"></script>
+					<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+					<script src="app/app.js"></script>
+					<script src="app/model/ConnectionSettings.js"></script>
+					<script src="app/model/Connection.js"></script>
+					<script src="app/services/Theme/ThemeService.js"></script>
+					<script src="app/services/Commands/CommandService.js"></script>
+					<script src="app/services/BackgroundImage/BackgroundImageService.js"></script>
+					<script src="app/services/Connections/ConnectionManagerService.js"></script>
+					<script src="app/services/Settings/ConnectionSettingsStorageService.js"></script>
+					<script src="app/services/Dal/StorageService.js"></script>
+					<script src="app/controller/MainCtrl.js"></script>
+					<script src="app/controller/LandingCtrl.js"></script>
+					<script src="app/controller/PlayerCtrl.js"></script>
+					<script src="app/controller/CreateConnectionSettingsCtrl.js"></script>
+					<script src="app/controller/SettingsCtrl.js"></script>
+				</body>
+			</html>

@@ -62,7 +62,7 @@ noisedWeb.factory('ConnectionManager',function(Command){
 				Command.sendCommand(
 					connection,
 					{ 
-						'Name': 'Noised.Commands.Core.Login',
+						'Name': 'Noised.Plugins.Commands.CoreCommands.Login',
 						'Parameters': [username, password]
 					});  
 			}

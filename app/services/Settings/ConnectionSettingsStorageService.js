@@ -1,11 +1,27 @@
 noisedWeb.factory('ConnectionSettingsStorage',function(Command,Storage){
+	var storageKey = "connection_settings";
 
-	var storageName = "connection_settings";
+	var	addSettingsInternal =  function(newSettings){
+		var settingsString = Storage.getSettings(storageKey);
+		var settings = [];
+		if(settingsString){
+			settings = JSON.parse(settingsString);
+		}
+		settings.push(newSettings);
+		Storage.setSettings(storageKey,JSON.stringify(settings));
+	};
+
+	var setSettingsInternal = function(settingsArray){
+		Storage.setSettings(storageKey,JSON.stringify(settingsArray));	
+	};
 
 	return{
-
 		getAllSettings: function(){
-			return Storage.getSettings(storageName);
+			var settingsString = Storage.getSettings(storageKey);
+			if(settingsString){
+				return JSON.parse(settingsString);
+			}
+			return [];
 		},
 
 		getSettingsForHost: function(host){
@@ -18,8 +34,8 @@ noisedWeb.factory('ConnectionSettingsStorage',function(Command,Storage){
 			return null;
 		},
 
-		removeSetings: function(settingsToRemove){
-			var allSettings = Storage.getSettings(storageName);
+		removeSettings: function(settingsToRemove){
+			var allSettings = this.getAllSettings();
 			for(var i=0; i<allSettings.length; i++){
 				var settings = allSettings[i];
 				if(settings.host === settingsToRemove.host){
@@ -27,15 +43,16 @@ noisedWeb.factory('ConnectionSettingsStorage',function(Command,Storage){
 					break;
 				}
 			}
-			Storage.setSettings(storageName,allSettings);
+
+			setSettingsInternal(allSettings);
 		},
 
 		addSettings: function(newSettings){
-			Storage.addSettings(storageName,newSettings);
+			addSettingsInternal(newSettings);
 		},
 
 		clearSettings: function(){
-			Storage.clearSettings(storageName);
+			Storage.clearSettings(storageKey);
 		},
 	}
 });

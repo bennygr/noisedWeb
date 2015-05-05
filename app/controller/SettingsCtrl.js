@@ -1,6 +1,7 @@
 noisedWeb.controller('SettingsCtrl', function($scope,
 											  $modal,
 											  Theme,
+											  AppearanceSettingsStorage,
 											  ConnectionManager, 
 											  ConnectionSettingsStorage){
 
@@ -8,9 +9,13 @@ noisedWeb.controller('SettingsCtrl', function($scope,
 	$scope.currentTheme = Theme.getCurrentTheme();
 
 	var reloadConnections = function(){
+		var allSettings = ConnectionSettingsStorage.getAllSettings();
 		//reload settings
-		$scope.connectionSettings = ConnectionSettingsStorage.getAllSettings();
-		$scope.connectionsAvailable = ConnectionSettingsStorage.getAllSettings().length > 0;
+		$scope.connectionSettings = allSettings;
+		$scope.connectionsAvailable = false;
+		if(allSettings && allSettings.length > 0){
+			$scope.connectionsAvailable = true;
+		}
 	};
 	//reload the connections
 	reloadConnections();
@@ -66,7 +71,7 @@ noisedWeb.controller('SettingsCtrl', function($scope,
 		}
 
 		//remove the settings object
-		ConnectionSettingsStorage.removeSetings(connectionSettings);
+		ConnectionSettingsStorage.removeSettings(connectionSettings);
 		//reload settings
 		reloadConnections();
 	}
@@ -77,5 +82,6 @@ noisedWeb.controller('SettingsCtrl', function($scope,
 	$scope.setTheme = function(theme){
 		$scope.currentTheme = theme;
 		Theme.setCurrentTheme(theme);
+		AppearanceSettingsStorage.setUiTheme(theme);
 	};
 });

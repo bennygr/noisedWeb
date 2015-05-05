@@ -1,6 +1,10 @@
 noisedWeb.factory('Theme',function(){
 	var themes = [
 		{ 
+			name: "bootstrap",
+          	path: null,
+		},	
+		{ 
 			name: "darkly",
           	path: "bower_components/bootstrap/dist/css/darkly.min.css",
 		},		
@@ -28,10 +32,6 @@ noisedWeb.factory('Theme',function(){
 			name: "flatly",
           	path: "bower_components/bootstrap/dist/css/flatly.min.css",
 		},	
-		{ 
-			name: "bootstrap",
-          	path: null,
-		}	
   	];
 
 	var currentTheme = themes[0];

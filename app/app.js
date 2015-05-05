@@ -37,8 +37,14 @@ noisedWeb.config(function($routeProvider){
  * Executoted when the app starts
  */
 noisedWeb.run(function($rootScope,
+					   AppearanceSettingsStorage,
+					   Theme,
 					   ConnectionSettingsStorage,
 					   ConnectionManager){
+
+	//Loading saved UI Theme
+	var savedTheme = AppearanceSettingsStorage.getUiTheme();
+	Theme.setCurrentTheme(savedTheme);
 					   
 	//Automatic connect all known bookmarks on startup
 	(function (){

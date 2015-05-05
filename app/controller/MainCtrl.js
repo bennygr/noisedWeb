@@ -1,11 +1,11 @@
 
 noisedWeb.controller('MainCtrl', function($scope,
-		$rootScope,
-		$route,
-		$location,
-		$modal,
-		BackgroundImage,
-		Theme){
+										  $rootScope,
+										  $route,
+										  $location,
+										  $modal,
+										  BackgroundImage,
+										  Theme){
 
 		$scope.theme = "";
 		$scope.poster= "";
@@ -53,21 +53,20 @@ noisedWeb.controller('MainCtrl', function($scope,
 				if($route.current && 
 					'hasBackgroundImage' in $route.current &&
 					$route.current.hasBackgroundImage){
-
-					if('forcedBackgroundImage' in $route.current){
-						$scope.poster = $route.current.forcedBackgroundImage;
-					}
-					else if('fallbackBackgroundImage' in $route.current){
-						if(BackgroundImage.getCurrentImage() === null){
-							$scope.poster = $route.current.fallbackBackgroundImage;
+						if('forcedBackgroundImage' in $route.current){
+							$scope.poster = $route.current.forcedBackgroundImage;
+						}
+						else if('fallbackBackgroundImage' in $route.current){
+							if(BackgroundImage.getCurrentImage() === null){
+								$scope.poster = $route.current.fallbackBackgroundImage;
+							}
+							else{
+								$scope.poster = BackgroundImage.getCurrentImage();
+							}
 						}
 						else{
 							$scope.poster = BackgroundImage.getCurrentImage();
 						}
-					}
-					else{
-						$scope.poster = BackgroundImage.getCurrentImage();
-					}
 					}
 					else{
 						$scope.poster = "";

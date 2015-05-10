@@ -14,7 +14,7 @@ noisedWeb.controller('PlayerCtrl', function($scope,BackgroundImage,ConnectionMan
 			var command = 
 					{ 
 						'Name': 'Noised.Plugins.Commands.CoreCommands.Play',
-						'Parameters': ["file:///home/bgr/Musik/test.mp3"]
+						'Parameters': ["file:///home/benny/Musik/test.mp3"]
 					};  
 			Command.sendCommand(connection,command);
 		}

@@ -1,57 +1,75 @@
 noisedWeb.factory('ConnectionSettingsStorage',function(Command,Storage){
 	var storageKey = "connection_settings";
+	var connectionSettings = [];
+
+	var loadSettingsInternal = function(){
+		var connectionSettingsString = Storage.getSettings(storageKey);
+		if(connectionSettingsString)
+			connectionSettings = JSON.parse(connectionSettingsString);
+	};
+
+	var saveSettingsInternal = function(){
+		Storage.setSettings(storageKey,JSON.stringify(connectionSettings));
+	}
 
 	var	addSettingsInternal =  function(newSettings){
-		var settingsString = Storage.getSettings(storageKey);
-		var settings = [];
-		if(settingsString){
-			settings = JSON.parse(settingsString);
-		}
-		settings.push(newSettings);
-		Storage.setSettings(storageKey,JSON.stringify(settings));
+		connectionSettings.push(newSettings);
+		saveSettingsInternal();
 	};
 
-	var setSettingsInternal = function(settingsArray){
-		Storage.setSettings(storageKey,JSON.stringify(settingsArray));	
-	};
+	loadSettingsInternal();
 
 	return{
+		/**
+		 * *Gets all connection settings
+		 */
 		getAllSettings: function(){
-			var settingsString = Storage.getSettings(storageKey);
-			if(settingsString){
-				return JSON.parse(settingsString);
-			}
-			return [];
+			return connectionSettings;
 		},
 
+		/**
+		 * Gets connection settings for a special host
+		 */
 		getSettingsForHost: function(host){
-			var allSettings = this.getAllSettings();
-			for(var i=0; i<allSettings.length; i++){
-				var settings = allSettings[i];
+			for(var i=0; i<connectionSettings.length; i++){
+				var settings = connectionSettings[i];
 				if(settings.host === host)
 					return settings;
 			}
 			return null;
 		},
 
+		/**
+		 * removes connection settings
+		 */
 		removeSettings: function(settingsToRemove){
-			var allSettings = this.getAllSettings();
-			for(var i=0; i<allSettings.length; i++){
-				var settings = allSettings[i];
+			var changed = false;
+			for(var i=0; i<connectionSettings.length; i++){
+				var settings = connectionSettings[i];
 				if(settings.host === settingsToRemove.host){
-					allSettings.splice(i,1);
+					connectionSettings.splice(i,1);
+					changed = true;
 					break;
 				}
 			}
-
-			setSettingsInternal(allSettings);
+			if(changed){
+				saveSettingsInternal();
+			}
 		},
 
+		/**
+		 * adds connection settings
+		 */
 		addSettings: function(newSettings){
 			addSettingsInternal(newSettings);
 		},
 
+		/**
+		 * Deletes all connection settings
+		 */
 		clearSettings: function(){
+			//Clearing the array
+			connectionSettings.length = 0;
 			Storage.clearSettings(storageKey);
 		},
 	}

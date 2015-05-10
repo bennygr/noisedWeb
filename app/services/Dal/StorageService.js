@@ -3,7 +3,6 @@ noisedWeb.factory('Storage',function(){
 	var keyBase =  "noised_preferences_";
 	return{
 
-		//returns the settings for the given name as array
 		getSettings: function(name){
 			key = keyBase + name;
 			return localStorage.getItem(key);

@@ -81,7 +81,7 @@ noisedWeb.controller('CreateConnectionSettingsCtrl',
 				}
 
 				//Remove existing settings object
-				ConnectionSettingsStorage.removeSetings(existingSettings);
+				ConnectionSettingsStorage.removeSettings(existingSettings);
 			}
 
 			//Establish a new connection

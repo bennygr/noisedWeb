@@ -6,7 +6,6 @@ noisedWeb.factory('ConnectionManager',function(Command){
 	var currentConnection = null;
 
 	return{
-
 		/*
 		 * Returns a set of current connections
 		 */

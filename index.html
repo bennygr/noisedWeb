@@ -27,8 +27,6 @@
 								</div>
 								<div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
 									<ul class="nav navbar-nav navbar-right" >
-
-
 										<li> <a href="#/"> <span class="glyphicon glyphicon-heart" aria-hidden="true"> Highlights</span></a> </li>
 										<li> <a href="#player"> <span class="glyphicon glyphicon-headphones" aria-hidden="true"> Player</span></a> </li>
 										<li> <a href="#browser"> <span class="glyphicon glyphicon-music" aria-hidden="true"> My Music</span></a> </li>
@@ -37,45 +35,40 @@
 										<li> <a href="#settings"> <span class="glyphicon glyphicon-cog" aria-hidden="true"> Preferences</span></a> </li>
 										<li class="dropdown"dropdown is-open="status.isopen">
 											<a href class="dropdown-toggle" dropdown-toggle ng-disabled="disabled">
-												<span class="glyphicon glyphicon-home" aria-hidden="true"> Wohnzimmer</span>
+												<span class="glyphicon glyphicon-home" aria-hidden="true"> {{currentConnection.description}}</span>
 												<span class="caret"></span>
 											</a>
-											<ul class="dropdown-menu" role="menu">
-												<li><a href>Küche</a></li>
-												<li><a href>Wohnzimmer</a></li>
-												<li><a href>Badezimmer</a></li>
-												<li class="divider"></li>
-												<li><a href>New connection</a></li>
+											<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+												<li ng-repeat="setting in connectionSettings" role="presentation">
+													<a role="menuitem" tabindex="-1" href ng-click="setCurrentConnection(setting)">{{setting.description}}</a>
+												</li>
 											</ul>
 										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</nav>
-				</header>
+									</div> 
+								</nav> 
+							</header>
 
-				<!--message at the bottom of the page/ footer-->
-				<div ng-view></div>
+								<!--message at the bottom of the page/ footer-->
+								<div ng-view></div>
 
-				<!-- my scripts to load -->
-				<script src="bower_components/angular/angular.js"></script>
-				<script src="bower_components/angular-route/angular-route.min.js"></script>
-				<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-				<script src="app/app.js"></script>
-				<script src="app/model/ConnectionSettings.js"></script>
-				<script src="app/model/Connection.js"></script>
-				<script src="app/services/Settings/ConnectionSettingsStorageService.js"></script>
-				<script src="app/services/Settings/AppearanceSettingsStorage.js"></script>
-				<script src="app/services/Dal/StorageService.js"></script>
-				<script src="app/services/Theme/ThemeService.js"></script>
-				<script src="app/services/Commands/CommandService.js"></script>
-				<script src="app/services/BackgroundImage/BackgroundImageService.js"></script>
-				<script src="app/services/Connections/ConnectionManagerService.js"></script>
-				<script src="app/controller/MainCtrl.js"></script>
-				<script src="app/controller/LandingCtrl.js"></script>
-				<script src="app/controller/PlayerCtrl.js"></script>
-				<script src="app/controller/CreateConnectionSettingsCtrl.js"></script>
-				<script src="app/controller/SettingsCtrl.js"></script>
-			</body>
-		</html>
+								<!-- my scripts to load -->
+								<script src="bower_components/angular/angular.js"></script>
+								<script src="bower_components/angular-route/angular-route.min.js"></script>
+								<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+								<script src="app/app.js"></script>
+								<script src="app/model/ConnectionSettings.js"></script>
+								<script src="app/model/Connection.js"></script>
+								<script src="app/services/Settings/ConnectionSettingsStorageService.js"></script>
+								<script src="app/services/Settings/AppearanceSettingsStorage.js"></script>
+								<script src="app/services/Dal/StorageService.js"></script>
+								<script src="app/services/Theme/ThemeService.js"></script>
+								<script src="app/services/Commands/CommandService.js"></script>
+								<script src="app/services/BackgroundImage/BackgroundImageService.js"></script>
+								<script src="app/services/Connections/ConnectionManagerService.js"></script>
+								<script src="app/controller/MainCtrl.js"></script>
+								<script src="app/controller/LandingCtrl.js"></script>
+								<script src="app/controller/PlayerCtrl.js"></script>
+								<script src="app/controller/CreateConnectionSettingsCtrl.js"></script>
+								<script src="app/controller/SettingsCtrl.js"></script>
+							</body>
+						</html>

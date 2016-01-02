@@ -14,7 +14,7 @@ noisedWeb.controller('PlayerCtrl', function($scope,BackgroundImage,ConnectionMan
 			var command = 
 					{ 
 						'Name': 'Noised.Plugins.Commands.CoreCommands.Play',
-						'Parameters': ["file:///home/benny/Musik/test.mp3"]
+						'Parameters': ["file:///home/bgr/Musik/AFI/I Heard a Voice/AFI - 06 - The Days Of The Phoenix (Live Arena Long Beach CA).mp3"]
 					};  
 			Command.sendCommand(connection,command);
 		}

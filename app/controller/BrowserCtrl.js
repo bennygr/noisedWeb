@@ -18,12 +18,25 @@ noisedWeb.controller('BrowserCtrl', function($scope,
 			Command.sendCommand(connection,command);
 		}
 	}
+
+	$scope.play = function(item){
+		var connection = ConnectionManager.getCurrentConnection();
+		if(connection){
+			var command = 
+					{ 
+						'Name': 'Noised.Plugins.Commands.CoreCommands.Play',
+						'Parameters': [item.Uri]
+					};  
+			Command.sendCommand(connection,command);
+		}
+	}
 	
 	var searchResultHandler = function(connection, response){
 		var resultList = response.Parameters[0][0].MediaItems;
 		$scope.mediaItems = resultList;
 		$scope.searchValue = $scope.searchInput;
 		$scope.artists = getArtists(resultList);
+		$scope.albums = getAlbums(resultList);
 		$scope.$digest();
 	}
 
@@ -40,6 +53,17 @@ noisedWeb.controller('BrowserCtrl', function($scope,
 			}
 		}
 		return artists;
+	}
+
+	var getAlbums = function(mediaItems){
+		var albums = [];
+		for(var i=0; i<mediaItems.length; i++){
+			var album = mediaItems[i].MetaData.Album;
+			if(!isInArrayIgnoreCase(albums,mediaItems[i].MetaData.Album)){
+				albums.push(mediaItems[i].MetaData.Album);
+			}
+		}
+		return albums;
 	}
 
 	var isInArrayIgnoreCase = function(array,value){

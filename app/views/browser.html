@@ -23,7 +23,7 @@
 			<h4>Artists <span class="badge"> {{artists.length}}</span><small> <a href=""> more...</a></small></h4> 
 			<div class="row">
 				<div ng-repeat="artist in artists">
-				   <div class="col-xs-12 col-sm-4">
+					<div class="col-xs-12 col-sm-4">
 						<div class="media" style="margin-top: 12px">
 							<div class="media-left">
 								<a href="#">
@@ -45,96 +45,21 @@
 
 			<br>
 
-
-
-
 			<div>
-				<h4>Albums <span class="badge"> 12</span><small><a href=""> more...</a></small></h4> 
+				<h4>Albums <span class="badge"> {{albums.length}}</span><small><a href=""> more...</a></small></h4> 
 				<div class="row">
-					<div class="col-xs-12 col-sm-4">
-						<div class="media" style="margin-top: 12px">
-							<div class="media-left">
-								<a href="#">
-									<img class="media-object" width="100" height="100" src="https://upload.wikimedia.org/wikipedia/en/d/de/Blink-182_-_Take_Off_Your_Pants_and_Jacket_cover.jpg" alt="...">
-								</a>
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading">Take Off Your Pants and Jacket</h4>
-								Blink 182 - <i> Universal Music Ireland Ltd.</i> (2001)
-							</div>
-						</div>
-					</div>
-
-
-					<div class="col-xs-12 col-sm-4">
-						<div class="media" style="margin-top: 12px">
-							<div class="media-left">
-								<a href="#">
-									<img class="media-object" width="100" height="100" src="https://upload.wikimedia.org/wikipedia/en/d/de/Blink-182_-_Take_Off_Your_Pants_and_Jacket_cover.jpg" alt="...">
-								</a>
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading">Take Off Your Pants and Jacket</h4>
-								Blink 182 - <i> Universal Music Ireland Ltd.</i> (2001)
-							</div>
-						</div>
-					</div>
-
-
-					<div class="col-xs-12 col-sm-4">
-						<div class="media" style="margin-top: 12px">
-							<div class="media-left">
-								<a href="#">
-									<img class="media-object" width="100" height="100" src="https://upload.wikimedia.org/wikipedia/en/d/de/Blink-182_-_Take_Off_Your_Pants_and_Jacket_cover.jpg" alt="...">
-								</a>
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading">Take Off Your Pants and Jacket</h4>
-								Blink 182 - <i> Universal Music Ireland Ltd.</i> (2001)
-							</div>
-						</div>
-					</div>
-
-
-					<div class="col-xs-12 col-sm-4">
-						<div class="media" style="margin-top: 12px">
-							<div class="media-left">
-								<a href="#">
-									<img class="media-object" width="100" height="100" src="https://upload.wikimedia.org/wikipedia/en/d/de/Blink-182_-_Take_Off_Your_Pants_and_Jacket_cover.jpg" alt="...">
-								</a>
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading">Take Off Your Pants and Jacket</h4>
-								Blink 182 - <i> Universal Music Ireland Ltd.</i> (2001)
-							</div>
-						</div>
-					</div>
-
-
-					<div class="col-xs-12 col-sm-4">
-						<div class="media" style="margin-top: 12px">
-							<div class="media-left">
-								<a href="#">
-									<img class="media-object" width="100" height="100" src="https://upload.wikimedia.org/wikipedia/en/d/de/Blink-182_-_Take_Off_Your_Pants_and_Jacket_cover.jpg" alt="...">
-								</a>
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading">Take Off Your Pants and Jacket</h4>
-								Blink 182 - <i> Universal Music Ireland Ltd.</i> (2001)
-							</div>
-						</div>
-					</div>
-
-					<div class="col-xs-12 col-sm-4">
-						<div class="media" style="margin-top: 12px">
-							<div class="media-left">
-								<a href="#">
-									<img class="media-object" width="100" height="100" src="https://upload.wikimedia.org/wikipedia/en/d/de/Blink-182_-_Take_Off_Your_Pants_and_Jacket_cover.jpg" alt="...">
-								</a>
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading">Take Off Your Pants and Jacket</h4>
-								Blink 182 - <i> Universal Music Ireland Ltd.</i> (2001)
+					<div ng-repeat="album in albums">
+						<div class="col-xs-12 col-sm-4">
+							<div class="media" style="margin-top: 12px">
+								<div class="media-left">
+									<a href="#">
+										<img class="media-object" width="100" height="100" src="https://upload.wikimedia.org/wikipedia/en/d/de/Blink-182_-_Take_Off_Your_Pants_and_Jacket_cover.jpg" alt="...">
+									</a>
+								</div>
+								<div class="media-body">
+									<h4 class="media-heading">{{album}}</h4>
+									Blink 182 - <i> Universal Music Ireland Ltd.</i> (2001)
+								</div>
 							</div>
 						</div>
 					</div>
@@ -143,96 +68,35 @@
 				</div>
 				<br>
 				<div>
-					<h4>Songs <span class="badge"> 42</span><small><a href=""> more...</a></small></h4> 
+					<h4>Songs <span class="badge">{{mediaItems.length}} </span><small><a href=""> more...</a></small></h4> 
 					<div class="row">
-						<div class="col-xs-12 col-sm-4">
-							<div class="media" style="margin-top: 12px">
-								<div class="media-left">
-									<a href="#">
-										<img class="media-object" width="100" height="100" src="https://upload.wikimedia.org/wikipedia/en/8/80/Rise_Against_Siren_Song_of_the_Counter_Culture.jpg" alt="...">
-									</a>
-								</div>
-								<div class="media-body">
-									<h4 class="media-heading">Swing Life Away <small> - 3:20</small></h4>
-									Rise Against - <i>Siren Song of the Counter Culture (2004)</i>
-								</div>
-							</div>
-						</div>
-
-
-						<div class="col-xs-12 col-sm-4">
-							<div class="media" style="margin-top: 12px">
-								<div class="media-left">
-									<a href="#">
-										<img class="media-object" width="100" height="100" src="https://upload.wikimedia.org/wikipedia/en/8/80/Rise_Against_Siren_Song_of_the_Counter_Culture.jpg" alt="...">
-									</a>
-								</div>
-								<div class="media-body">
-									<h4 class="media-heading">Swing Life Away <small> - 3:20</small></h4>
-									Rise Against - <i>Siren Song of the Counter Culture (2004)</i>
-								</div>
-							</div>
-						</div>
-
-
-						<div class="col-xs-12 col-sm-4">
-							<div class="media" style="margin-top: 12px">
-								<div class="media-left">
-									<a href="#">
-										<img class="media-object" width="100" height="100" src="https://upload.wikimedia.org/wikipedia/en/8/80/Rise_Against_Siren_Song_of_the_Counter_Culture.jpg" alt="...">
-									</a>
-								</div>
-								<div class="media-body">
-									<h4 class="media-heading">Swing Life Away <small> - 3:20</small></h4>
-									Rise Against - <i>Siren Song of the Counter Culture (2004)</i>
+						<div ng-repeat="song in mediaItems">
+							<div class="col-xs-12 col-sm-4">
+								<div class="media" style="margin-top: 12px">
+									<div class="media-left">
+										<a href="#">
+											<img class="media-object" width="100" height="100" src="https://upload.wikimedia.org/wikipedia/en/8/80/Rise_Against_Siren_Song_of_the_Counter_Culture.jpg" alt="...">
+										</a>
+									</div>
+									<div class="media-body">
+										<h4 class="media-heading">{{song.MetaData.Title}}<small> - 3:20</small></h4>
+										Rise Against - <i>Siren Song of the Counter Culture (2004)</i>
+										<button class="btn btn-xs" ng-click="play(song)" title="Play this song"> 
+											<span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+										</button>
+										<div class="dropdown" title="More actions">
+											<button class="btn btn-xs dropdown-toggle" type="button" data-toggle="dropdown">
+											<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+											<ul class="dropdown-menu">
+												<li><a href="#">HTML</a></li>
+												<li><a href="#">CSS</a></li>
+												<li><a href="#">JavaScript</a></li>
+											</ul>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
-
-
-						<div class="col-xs-12 col-sm-4">
-							<div class="media" style="margin-top: 12px">
-								<div class="media-left">
-									<a href="#">
-										<img class="media-object" width="100" height="100" src="https://upload.wikimedia.org/wikipedia/en/8/80/Rise_Against_Siren_Song_of_the_Counter_Culture.jpg" alt="...">
-									</a>
-								</div>
-								<div class="media-body">
-									<h4 class="media-heading">Swing Life Away <small> - 3:20</small></h4>
-									Rise Against - <i>Siren Song of the Counter Culture (2004)</i>
-								</div>
-							</div>
-						</div>
-
-
-						<div class="col-xs-12 col-sm-4">
-							<div class="media" style="margin-top: 12px">
-								<div class="media-left">
-									<a href="#">
-										<img class="media-object" width="100" height="100" src="https://upload.wikimedia.org/wikipedia/en/8/80/Rise_Against_Siren_Song_of_the_Counter_Culture.jpg" alt="...">
-									</a>
-								</div>
-								<div class="media-body">
-									<h4 class="media-heading">Swing Life Away <small> - 3:20</small></h4>
-									Rise Against - <i>Siren Song of the Counter Culture (2004)</i>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-xs-12 col-sm-4">
-							<div class="media" style="margin-top: 12px">
-								<div class="media-left">
-									<a href="#">
-										<img class="media-object" width="100" height="100" src="https://upload.wikimedia.org/wikipedia/en/8/80/Rise_Against_Siren_Song_of_the_Counter_Culture.jpg" alt="...">
-									</a>
-								</div>
-								<div class="media-body">
-									<h4 class="media-heading">Swing Life Away <small> - 3:20</small></h4>
-									Rise Against - <i>Siren Song of the Counter Culture (2004)</i>
-								</div>
-							</div>
-						</div>
-
 					</div>
 				</div>
 				<br>

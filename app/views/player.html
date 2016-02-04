@@ -9,7 +9,9 @@
 			<div class="row">
 				<div class="col-xs-12 col-sm-4 col-sm-offset-4">
 					<span class="pull-right label label-info">Wohnzimmer</span>
-					<h5>Having a blast <small> <cite>, by Green Day</cite></small></h5>
+					<div ng-if="currentMediaItem.MetaData">
+						<h5 >{{currentMediaItem.MetaData.Title}} <small> <cite>, by {{currentArtist}}</cite></small></h5>
+					</div>
 					<div class="progress">
 						<div class="progress-bar"
 								role="progressbar" 
@@ -35,8 +37,12 @@
 							<span class="glyphicon glyphicon-step-backward" aria-hidden="true"/>
 						</button>
 
-						<button type="button" class="btn btn-primary btn-circle" ng-click="test()">
+						<button type="button" class="btn btn-primary btn-circle" ng-click="resume()" ng-hide="isPlaying">
 							<span class="glyphicon glyphicon-play" aria-hidden="true"/>
+						</button>
+
+						<button type="button" class="btn btn-primary btn-circle" ng-click="pause()" ng-show="isPlaying">
+							<span class="glyphicon glyphicon-pause" aria-hidden="true"/>
 						</button>
 
 						<button type="button" class="btn btn-primary btn-circle-sm">
@@ -44,13 +50,13 @@
 						</button>
 
 						<!-- Single button -->
-						<div class="btn-group" dropdown is-open="status.isopen">
+						<div class="btn-group" dropdown is-open="menuStatus.isopen">
 							<button type="button"
 									class="btn btn-primary btn-circle-sm dropdown-toggle" dropdown-toggle ng-disabled="disabled">
 								<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"/>
 							</button>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="#">Actiocn</a></li>
+								<li><a href="#" ng-click="stop()">Stop</a></li>
 								<li><a href="#">Another action</a></li>
 								<li><a href="#">Something else here</a></li>
 								<li class="divider"></li>

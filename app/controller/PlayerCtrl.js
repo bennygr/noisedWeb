@@ -1,23 +1,48 @@
-noisedWeb.controller('PlayerCtrl', function($scope,BackgroundImage,ConnectionManager,Command){
+noisedWeb.controller('PlayerCtrl', function($scope,BackgroundImage,ConnectionManager,Command,Playback){
+	Playback.refresh();
 	$scope.albumImage = "app/img/insomiac.jpg";
-	$scope.status = {
+	$scope.isPlaying = Playback.isPlaying;
+	$scope.currentMediaItem = Playback.isPlaying;
+	$scope.currentArtist = null;
+	$scope.menuStatus = {
 		isopen: false
 	};
 
-	$scope.HelloWorld = function(){
-		BackgroundImage.setCurrentImage("app/img/greenDay.jpg");
+	$scope.$watch(
+		function(){return Playback.isPlaying},
+		function(newVal){
+			$scope.isPlaying = newVal;
+		}
+	);
+
+	$scope.$watch(
+		function(){return Playback.currentMediaItem},
+		function(newVal){
+			if(newVal != null){
+				$scope.currentMediaItem = newVal;
+				if(newVal.MetaData.Artists.length > 0 && newVal.MetaData.Artists[0] != null){
+					$scope.currentArtist = newVal.MetaData.Artists[0];
+				}
+				else{
+					$scope.currentArtist = "Unknown artist";
+				}
+			}
+		}
+	)
+
+	//$scope.HelloWorld = function(){
+	//	BackgroundImage.setCurrentImage("app/img/greenDay.jpg");
+	//}
+
+	$scope.stop = function(){
+		Playback.stopPlayback();
 	}
 
-	$scope.test = function(){
-		var connection = ConnectionManager.getCurrentConnection();
-		if(connection){
-			var command = 
-					{ 
-						'Name': 'Noised.Plugins.Commands.CoreCommands.Play',
-						'Parameters': ["file:///home/bgr/Musik/AFI/I Heard a Voice/AFI - 06 - The Days Of The Phoenix (Live Arena Long Beach CA).mp3"]
-					};  
-			Command.sendCommand(connection,command);
-		}
-		
-	};
+	$scope.pause = function(){
+		Playback.pausePlayback();
+	}
+
+	$scope.resume = function(){
+		Playback.resumePlayback();
+	}
 });

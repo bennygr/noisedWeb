@@ -47,6 +47,7 @@ noisedWeb.run(function($rootScope,
 					   AppearanceSettingsStorage,
 					   Theme,
 					   ConnectionSettingsStorage,
+					   Playback,
 					   ConnectionManager){
 
 	//Loading saved UI Theme
@@ -67,5 +68,4 @@ noisedWeb.run(function($rootScope,
 											  null);//we don't hanle errors due on startup
 		}
 	})();
-
 });

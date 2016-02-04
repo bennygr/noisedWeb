@@ -1,7 +1,6 @@
 //A connection service can handle multiple connections 
 //to varios noised daemons (for example: "living room", "Kitchen", etc)
 noisedWeb.factory('ConnectionManager',function(Command){
-
 	var connectionList = [];
 	var currentConnection = null;
 

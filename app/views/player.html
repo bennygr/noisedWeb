@@ -45,7 +45,7 @@
 							<span class="glyphicon glyphicon-pause" aria-hidden="true"/>
 						</button>
 
-						<button type="button" class="btn btn-primary btn-circle-sm">
+						<button type="button" class="btn btn-primary btn-circle-sm" ng-click="next()">
 							<span class="glyphicon glyphicon-step-forward" aria-hidden="true"/>
 						</button>
 
@@ -56,14 +56,9 @@
 								<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"/>
 							</button>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="#" ng-click="stop()">Stop</a></li>
-								<li><a href="#">Another action</a></li>
-								<li><a href="#">Something else here</a></li>
-								<li class="divider"></li>
-								<li><a href="#">Separated link</a></li>
+								<li><a href="?#/player" ng-click="stop()">Stop</a></li>
 							</ul>
 						</div>
-
 					</div>
 				</div>
 			</div>

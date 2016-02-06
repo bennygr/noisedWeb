@@ -84,6 +84,17 @@ noisedWeb.service('Playback',function($rootScope,ConnectionManager,Command){
 		}
 	};
 
+	this.next = function(){
+		var connection = ConnectionManager.getCurrentConnection();
+		if(connection){
+			var command = 
+					{ 
+						'Name': 'Noised.Plugins.Commands.CoreCommands.Next'
+					};  
+			Command.sendCommand(connection,command);
+		}
+	}
+
 	Command.registerResponseCallback(this.playHandler,/Noised.\Commands\.Core\.Play/);
 	Command.registerResponseCallback(this.pauseHandler,/Noised.\Commands\.Core\.Pause/);
 	Command.registerResponseCallback(this.stopHandler,/Noised.\Commands\.Core\.Stop/);

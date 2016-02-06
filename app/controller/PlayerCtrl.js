@@ -18,8 +18,9 @@ noisedWeb.controller('PlayerCtrl', function($scope,BackgroundImage,ConnectionMan
 	$scope.$watch(
 		function(){return Playback.currentMediaItem},
 		function(newVal){
+			$scope.currentMediaItem = newVal;
+			$scope.currentArtist = null;
 			if(newVal != null){
-				$scope.currentMediaItem = newVal;
 				if(newVal.MetaData.Artists.length > 0 && newVal.MetaData.Artists[0] != null){
 					$scope.currentArtist = newVal.MetaData.Artists[0];
 				}
@@ -44,5 +45,9 @@ noisedWeb.controller('PlayerCtrl', function($scope,BackgroundImage,ConnectionMan
 
 	$scope.resume = function(){
 		Playback.resumePlayback();
+	}
+
+	$scope.next = function(){
+		Playback.next();
 	}
 });

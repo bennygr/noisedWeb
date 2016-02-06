@@ -118,3 +118,7 @@
   border-radius: 25px;
 }
 
+.media,
+.media-body {
+  overflow: visible;
+}

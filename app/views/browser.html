@@ -84,13 +84,13 @@
 										<button class="btn btn-xs" ng-click="play(song)" title="Play this song"> 
 											<span class="glyphicon glyphicon-play" aria-hidden="true"></span>
 										</button>
-										<div class="dropdown" title="More actions">
-											<button class="btn btn-xs dropdown-toggle" type="button" data-toggle="dropdown">
-											<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-											<ul class="dropdown-menu">
-												<li><a href="#">HTML</a></li>
-												<li><a href="#">CSS</a></li>
-												<li><a href="#">JavaScript</a></li>
+										<!-- Single button -->
+										<div class="btn-group" dropdown is-open="false">
+											<button type="button" class="btn btn-xs dropdown-toggle " dropdown-toggle ng-disabled="disabled">
+												<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"/>
+											</button>
+											<ul class="dropdown-menu" role="menu">
+												<li><a href="#" ng-click="enqueue(song)">Enqueue</a></li>
 											</ul>
 										</div>
 									</div>

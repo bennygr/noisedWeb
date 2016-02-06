@@ -6,6 +6,9 @@ noisedWeb.controller('BrowserCtrl', function($scope,
 	$scope.searchValue = null;
 	$scope.mediaItems = null;
 	$scope.artists = null;
+	$scope.menuStatus = {
+		isopen: false
+	};
 
 	$scope.search = function(){
 		var connection = ConnectionManager.getCurrentConnection();
@@ -17,7 +20,7 @@ noisedWeb.controller('BrowserCtrl', function($scope,
 					};  
 			Command.sendCommand(connection,command);
 		}
-	}
+	};
 
 	$scope.play = function(item){
 		var connection = ConnectionManager.getCurrentConnection();
@@ -29,7 +32,19 @@ noisedWeb.controller('BrowserCtrl', function($scope,
 					};  
 			Command.sendCommand(connection,command);
 		}
-	}
+	};
+
+	$scope.enqueue = function(item){
+		var connection = ConnectionManager.getCurrentConnection();
+		if(connection){
+			var command = 
+					{ 
+						'Name': 'Noised.Plugins.Commands.CoreCommands.Enqueue',
+						'Parameters': [[item.Uri]]
+					};  
+			Command.sendCommand(connection,command);
+		}
+	};
 	
 	var searchResultHandler = function(connection, response){
 		var resultList = response.Parameters[0][0].MediaItems;
@@ -37,8 +52,8 @@ noisedWeb.controller('BrowserCtrl', function($scope,
 		$scope.searchValue = $scope.searchInput;
 		$scope.artists = getArtists(resultList);
 		$scope.albums = getAlbums(resultList);
-		$scope.$digest();
-	}
+		$scope.$apply();
+	};
 
 	//Helper function to extract a unique list of artists from the mediaItems result
 	var getArtists = function(mediaItems){
@@ -53,7 +68,7 @@ noisedWeb.controller('BrowserCtrl', function($scope,
 			}
 		}
 		return artists;
-	}
+	};
 
 	var getAlbums = function(mediaItems){
 		var albums = [];
@@ -64,7 +79,7 @@ noisedWeb.controller('BrowserCtrl', function($scope,
 			}
 		}
 		return albums;
-	}
+	};
 
 	var isInArrayIgnoreCase = function(array,value){
 		for(var i=0;i<array.length;i++){
@@ -73,7 +88,7 @@ noisedWeb.controller('BrowserCtrl', function($scope,
 			}
 		}
 		return false;
-	}
+	};
 
 	Command.registerResponseCallback(searchResultHandler,/Noised.\Commands\.Core\.Search/);
 });

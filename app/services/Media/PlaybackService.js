@@ -41,58 +41,43 @@ noisedWeb.service('Playback',function($rootScope,ConnectionManager,Command){
 	};
 
 	this.stopPlayback = function(){
-		var connection = ConnectionManager.getCurrentConnection();
-		if(connection){
-			var command = 
-					{ 
-						'Name': 'Noised.Plugins.Commands.CoreCommands.Stop'
-					};  
-			Command.sendCommand(connection,command);
-		}
+		var command = 
+				{ 
+					'Name': 'Noised.Plugins.Commands.CoreCommands.Stop'
+				};  
+		ConnectionManager.sendCommand(command);
 	};
 
 	this.pausePlayback = function(){
-		var connection = ConnectionManager.getCurrentConnection();
-		if(connection){
-			var command = 
-					{ 
-						'Name': 'Noised.Plugins.Commands.CoreCommands.Pause'
-					};  
-			Command.sendCommand(connection,command);
-		}
+		var command = 
+				{ 
+					'Name': 'Noised.Plugins.Commands.CoreCommands.Pause'
+				};  
+		ConnectionManager.sendCommand(command);
 	};
 
 	this.resumePlayback = function(){
-		var connection = ConnectionManager.getCurrentConnection();
-		if(connection){
-			var command = 
-					{ 
-						'Name': 'Noised.Plugins.Commands.CoreCommands.Resume'
-					};  
-			Command.sendCommand(connection,command);
-		}
+		var command = 
+				{ 
+					'Name': 'Noised.Plugins.Commands.CoreCommands.Resume'
+				};  
+		ConnectionManager.sendCommand(command);
 	}
 
 	this.refresh = function(){
-		var connection = ConnectionManager.getCurrentConnection();
-		if(connection){
-			var command = 
-					{ 
-						'Name': 'Noised.Plugins.Commands.CoreCommands.GetCurrentMediaItem'
-					};  
-			Command.sendCommand(connection,command);
-		}
+		var command = 
+				{ 
+					'Name': 'Noised.Plugins.Commands.CoreCommands.GetCurrentMediaItem'
+				};  
+		ConnectionManager.sendCommand(command);
 	};
 
 	this.next = function(){
-		var connection = ConnectionManager.getCurrentConnection();
-		if(connection){
-			var command = 
-					{ 
-						'Name': 'Noised.Plugins.Commands.CoreCommands.Next'
-					};  
-			Command.sendCommand(connection,command);
-		}
+		var command = 
+				{ 
+					'Name': 'Noised.Plugins.Commands.CoreCommands.Next'
+				};  
+		ConnectionManager.sendCommand(command);
 	}
 
 	Command.registerResponseCallback(this.playHandler,/Noised.\Commands\.Core\.Play/);

@@ -126,6 +126,15 @@ noisedWeb.factory('ConnectionManager',function(Command){
 					break;
 				}
 			}
+		},
+
+		/**
+		 * Sends a command to the "current" connection
+		 */
+		sendCommand: function(command){
+			if(currentConnection){
+				Command.sendCommand(currentConnection,command);
+			}
 		}
 	};
 });

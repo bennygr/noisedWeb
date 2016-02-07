@@ -11,39 +11,30 @@ noisedWeb.controller('BrowserCtrl', function($scope,
 	};
 
 	$scope.search = function(){
-		var connection = ConnectionManager.getCurrentConnection();
-		if(connection){
-			var command = 
-					{ 
-						'Name': 'Noised.Plugins.Commands.CoreCommands.Search',
-						'Parameters': [$scope.searchInput]
-					};  
-			Command.sendCommand(connection,command);
-		}
+		var command = 
+				{ 
+					'Name': 'Noised.Plugins.Commands.CoreCommands.Search',
+					'Parameters': [$scope.searchInput]
+				};  
+		ConnectionManager.sendCommand(command);
 	};
 
 	$scope.play = function(item){
-		var connection = ConnectionManager.getCurrentConnection();
-		if(connection){
-			var command = 
-					{ 
-						'Name': 'Noised.Plugins.Commands.CoreCommands.Play',
-						'Parameters': [item.Uri]
-					};  
-			Command.sendCommand(connection,command);
-		}
+		var command = 
+				{ 
+					'Name': 'Noised.Plugins.Commands.CoreCommands.Play',
+					'Parameters': [item.Uri]
+				};  
+		ConnectionManager.sendCommand(command);
 	};
 
 	$scope.enqueue = function(item){
-		var connection = ConnectionManager.getCurrentConnection();
-		if(connection){
-			var command = 
-					{ 
-						'Name': 'Noised.Plugins.Commands.CoreCommands.Enqueue',
-						'Parameters': [[item.Uri]]
-					};  
-			Command.sendCommand(connection,command);
-		}
+		var command = 
+				{ 
+					'Name': 'Noised.Plugins.Commands.CoreCommands.Enqueue',
+					'Parameters': [[item.Uri]]
+				};  
+		ConnectionManager.sendCommand(command);
 	};
 	
 	var searchResultHandler = function(connection, response){

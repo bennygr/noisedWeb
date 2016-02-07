@@ -40,7 +40,7 @@ noisedWeb.factory('Command',function(){
 			}
 		},
 
-		//sends a command to a server
+		//sends a command to a given connection
 		sendCommand: function(connection, command){
 			command.protocolVersion = protocolVersion;
 			var commandString = JSON.stringify(command);

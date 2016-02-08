@@ -1,7 +1,8 @@
 noisedWeb.controller('BrowserCtrl', function($scope,
 											 ConnectionSettingsStorage,
 											 ConnectionManager,
-											 Command){
+											 Command,
+											 Queue){
 	$scope.searchInput = null;
 	$scope.searchValue = null;
 	$scope.mediaItems = null;
@@ -17,10 +18,10 @@ noisedWeb.controller('BrowserCtrl', function($scope,
 					'Parameters': [$scope.searchInput]
 				};  
 		ConnectionManager.sendCommand(command);
-	};
+t};
 
 	$scope.play = function(item){
-		var command = 
+		var command =
 				{ 
 					'Name': 'Noised.Plugins.Commands.CoreCommands.Play',
 					'Parameters': [item.Uri]
@@ -29,12 +30,7 @@ noisedWeb.controller('BrowserCtrl', function($scope,
 	};
 
 	$scope.enqueue = function(item){
-		var command = 
-				{ 
-					'Name': 'Noised.Plugins.Commands.CoreCommands.Enqueue',
-					'Parameters': [[item.Uri]]
-				};  
-		ConnectionManager.sendCommand(command);
+		Queue.enqueue(item);
 	};
 	
 	var searchResultHandler = function(connection, response){

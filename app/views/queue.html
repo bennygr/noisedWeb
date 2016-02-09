@@ -1,0 +1,26 @@
+<div class="container">
+	<ul class="list-group">
+	<div class="jumbotron" ng-show="isQueueEmpty()">
+		<p align="center">
+			The queue is empty! Why don't you <a  href="#browser">search</a> for some awesome music to put into the queue?
+		</p>
+	</div>
+		<div ng-repeat="song in content">
+			<div class="list-group">
+				<div class="list-group-item">
+					<div class="media">
+						<div class="media-left">
+							<a href="#">
+								<img class="media-object" width="50" height="50" src="https://upload.wikimedia.org/wikipedia/en/8/80/Rise_Against_Siren_Song_of_the_Counter_Culture.jpg" alt="...">
+							</a>
+						</div>
+						<div class="media-body">
+							<h4 class="media-heading">{{song.MetaData.Title}}</h4>
+							Rise Against - <i>Siren Song of the Counter Culture (2004)</i>
+							</div>
+						</div>	
+					</div>
+				</div>
+			</div>
+		</ul>
+	</div>

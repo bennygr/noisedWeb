@@ -1,7 +1,7 @@
 //handles the noised queue
 noisedWeb.service('Queue',function($rootScope,ConnectionManager,Command){
 	var _this = this;
-	this.queue = [];
+	this.content = [];
 
 	this.triggerUpdate = function(){
 		$rootScope.$digest()
@@ -9,7 +9,7 @@ noisedWeb.service('Queue',function($rootScope,ConnectionManager,Command){
 
 	this.refreshHandler = function(connection, response){
 		if(response.Parameters.length > 0) {
-			_this.queue = response.Parameters;
+			_this.content = response.Parameters;
 		}
 		_this.triggerUpdate();
 	};

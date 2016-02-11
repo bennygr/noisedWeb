@@ -12,4 +12,8 @@ noisedWeb.controller('QueueCtrl', function($scope,Queue){
 	$scope.isQueueEmpty = function(){
 		return $scope.content === null || $scope.content.length == 0;
 	}
+
+	$scope.clear = function(){
+		Queue.clear();
+	}
 });

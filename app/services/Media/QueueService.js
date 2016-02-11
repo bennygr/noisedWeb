@@ -11,6 +11,9 @@ noisedWeb.service('Queue',function($rootScope,ConnectionManager,Command){
 		if(response.Parameters.length > 0) {
 			_this.content = response.Parameters;
 		}
+		else{
+			_this.content = null;
+		}
 		_this.triggerUpdate();
 	};
 
@@ -31,6 +34,13 @@ noisedWeb.service('Queue',function($rootScope,ConnectionManager,Command){
 		ConnectionManager.sendCommand(command);
 	};
 
+	this.clear = function(){
+		var command = 
+				{ 
+					'Name': 'Noised.Plugins.Commands.CoreCommands.ClearQueue'
+				};  
+		ConnectionManager.sendCommand(command);
+	}
 
 	Command.registerResponseCallback(this.refreshHandler,/Noised.\Commands\.Core\.GetQueue/);
 	this.refresh();

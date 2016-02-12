@@ -26,6 +26,16 @@ noisedWeb.service('Queue',function($rootScope,ConnectionManager,Command){
 		ConnectionManager.sendCommand(command);
 	}
 
+	this.remove = function(listableItem){
+		var command =
+				{ 
+					'Name': 'Noised.Plugins.Commands.CoreCommands.RemoveFromQueue',
+					'Parameters': [[listableItem.ListId]]
+				}; 
+		ConnectionManager.sendCommand(command);
+
+	}
+
 	this.refresh = function(){
 		var command = 
 				{ 

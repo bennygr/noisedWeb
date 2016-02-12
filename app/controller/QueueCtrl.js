@@ -13,6 +13,10 @@ noisedWeb.controller('QueueCtrl', function($scope,Queue){
 		return $scope.content === null || $scope.content.length == 0;
 	}
 
+	$scope.remove = function(listableItem){
+		Queue.remove(listableItem);
+	}
+
 	$scope.clear = function(){
 		Queue.clear();
 	}

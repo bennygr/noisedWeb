@@ -4,9 +4,17 @@ noisedWeb.controller('PlayerCtrl', function($scope,BackgroundImage,ConnectionMan
 	$scope.isPlaying = Playback.isPlaying;
 	$scope.currentMediaItem = Playback.isPlaying;
 	$scope.currentArtist = null;
+	$scope.currentConnection = ConnectionManager.getCurrentConnection();
 	$scope.menuStatus = {
 		isopen: false
 	};
+
+	$scope.$watch(function(){ 
+		return ConnectionManager.getCurrentConnection();
+	}, 
+	function (newVal){
+		$scope.currentConnection = ConnectionManager.getCurrentConnection();
+	}, true);
 
 	$scope.$watch(
 		function(){return Playback.isPlaying},

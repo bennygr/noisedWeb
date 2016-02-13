@@ -38,6 +38,12 @@ noisedWeb.config(function($routeProvider){
 			hasBackgroundImage: true,
 			fallbackBackgroundImage: 'app/img/default.jpg'
 	})
+	.when('/playlists',{
+			templateUrl: 'app/views/playlists.html',
+			controller:  'PlaylistsCtrl',
+			hasBackgroundImage: true,
+			fallbackBackgroundImage: 'app/img/default.jpg'
+	})
 	.when('/settings',{
 			templateUrl: 'app/views/settings.html',
 			controller:  'SettingsCtrl',

@@ -1,4 +1,4 @@
-noisedWeb.controller('PlayerCtrl', function($scope,BackgroundImage,ConnectionManager,Command,Playback){
+noisedWeb.controller('PlayerCtrl', function($scope,BackgroundImage,ConnectionManager,Command,Playback,Queue){
 	Playback.refresh();
 	$scope.albumImage = "app/img/insomiac.jpg";
 	$scope.isPlaying = Playback.isPlaying;
@@ -57,5 +57,9 @@ noisedWeb.controller('PlayerCtrl', function($scope,BackgroundImage,ConnectionMan
 
 	$scope.next = function(){
 		Playback.next();
+	}
+
+	$scope.enqueue = function(mediaItem){
+		Queue.enqueue(mediaItem);
 	}
 });

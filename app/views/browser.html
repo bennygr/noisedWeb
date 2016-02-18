@@ -1,104 +1,112 @@
 <div class="container">
-	<div class="row">
-		<div class="col-xs-12">
-			<form ng-submit="search()">
-				<div class="input-group">
-					<span class="input-group-addon" id="basic-addon1">
-						<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-					</span>
-					<input type="text" class="form-control" placeholder="Artist, Album or Song" ng-model="searchInput">
-					<span class="input-group-btn">
-						<button class="btn btn-default" ng-click="search()" type="button">Search!</button>
-					</span>
-				</div>
-			</form>
-		</div>
-	</div>
-	<br>
-	<h3 ng-show="mediaItems.length === 0 ">Nothing found for "{{searchValue}}"</h3>
-	<div ng-show="mediaItems.length > 0">
-		<h3 >Showing results for "{{searchValue}}" <span class="badge"> {{mediaItems.length}}</span></h3>
-		<br>
-		<div>
-			<h4>Artists <span class="badge"> {{artists.length}}</span><small> <a href=""> more...</a></small></h4> 
-			<div class="row">
-				<div ng-repeat="artist in artists">
-					<div class="col-xs-12 col-sm-4">
-						<div class="media" style="margin-top: 12px">
-							<div class="media-left">
-								<a href="#">
-									<img class="media-object" width="100" height="100" src="http://musically.com/wp-content/uploads/2012/09/green-day.png" alt="...">
-								</a>
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading">{{artist}}</h4>
-								<span class="label label-default">punk rock</span>
-								<span class="label label-default">rock</span>
-								<span class="label label-default">punk</span>
-								<span class="label label-default">alternative</span>
-								<span class="label label-default">alternative rock</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+  <div class="row">
+    <div class="col-xs-12">
+      <form ng-submit="search()">
+        <div class="input-group">
+          <span class="input-group-addon" id="basic-addon1">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+          </span>
+          <input type="text" class="form-control" placeholder="Artist, Album or Song" ng-model="searchInput">
+          <span class="input-group-btn">
+            <button class="btn btn-default" ng-click="search()" type="button">Search!</button>
+          </span>
+        </div>
+      </form>
+    </div>
+  </div>
+  <br>
+  <h3 ng-show="mediaItems.length === 0 ">Nothing found for "{{searchValue}}"</h3>
+  <div ng-show="mediaItems.length > 0">
+    <h3 >Showing results for "{{searchValue}}" <span class="badge"> {{mediaItems.length}}</span></h3>
+    <br>
+    <div>
+      <h4>Artists <span class="badge"> {{artists.length}}</span><small> <a href=""> more...</a></small></h4> 
+      <div class="row">
+        <div ng-repeat="artist in artists">
+          <div class="col-xs-12 col-sm-4">
+            <div class="media" style="margin-top: 12px">
+              <div class="media-left">
+                <a href="#">
+                  <img class="media-object" width="100" height="100" src="http://musically.com/wp-content/uploads/2012/09/green-day.png" alt="...">
+                </a>
+              </div>
+              <div class="media-body">
+                <h4 class="media-heading">{{artist}}</h4>
+                <span class="label label-default">punk rock</span>
+                <span class="label label-default">rock</span>
+                <span class="label label-default">punk</span>
+                <span class="label label-default">alternative</span>
+                <span class="label label-default">alternative rock</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-			<br>
+      <br>
 
-			<div>
-				<h4>Albums <span class="badge"> {{albums.length}}</span><small><a href=""> more...</a></small></h4> 
-				<div class="row">
-					<div ng-repeat="album in albums">
-						<div class="col-xs-12 col-sm-4">
-							<div class="media" style="margin-top: 12px">
-								<div class="media-left">
-									<a href="#">
-										<img class="media-object" width="100" height="100" src="https://upload.wikimedia.org/wikipedia/en/d/de/Blink-182_-_Take_Off_Your_Pants_and_Jacket_cover.jpg" alt="...">
-									</a>
-								</div>
-								<div class="media-body">
-									<h4 class="media-heading">{{album}}</h4>
-									Blink 182 - <i> Universal Music Ireland Ltd.</i> (2001)
-								</div>
-							</div>
-						</div>
-					</div>
+      <div>
+        <h4>Albums <span class="badge"> {{albums.length}}</span><small><a href=""> more...</a></small></h4> 
+        <div class="row">
+          <div ng-repeat="album in albums">
+            <div class="col-xs-12 col-sm-4">
+              <div class="media" style="margin-top: 12px">
+                <div class="media-left">
+                  <a href="#">
+                    <img class="media-object" width="100" height="100" src="https://upload.wikimedia.org/wikipedia/en/d/de/Blink-182_-_Take_Off_Your_Pants_and_Jacket_cover.jpg" alt="...">
+                  </a>
+                </div>
+                <div class="media-body">
+                  <h4 class="media-heading">{{album}}</h4>
+                  Blink 182 - <i> Universal Music Ireland Ltd.</i> (2001)
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
+        <br>
 
-				</div>
-				<br>
-				<div>
-					<h4>Songs <span class="badge">{{mediaItems.length}} </span><small><a href=""> more...</a></small></h4> 
-					<div class="row">
-						<div ng-repeat="song in mediaItems">
-							<div class="col-xs-12 col-sm-4">
-								<div class="media" style="margin-top: 12px">
-									<div class="media-left">
-										<a href="#">
-											<img class="media-object" width="100" height="100" src="https://upload.wikimedia.org/wikipedia/en/8/80/Rise_Against_Siren_Song_of_the_Counter_Culture.jpg" alt="...">
-										</a>
-									</div>
-									<div class="media-body">
-										<h4 class="media-heading">{{song.MetaData.Title}}<small> - 3:20</small></h4>
-										Rise Against - <i>Siren Song of the Counter Culture (2004)</i>
-										<button class="btn btn-xs" ng-click="play(song)" title="Play this song"> 
-											<span class="glyphicon glyphicon-play" aria-hidden="true"></span>
-										</button>
-										<!-- Single button -->
-										<div class="btn-group" dropdown is-open="false">
-											<button type="button" class="btn btn-xs dropdown-toggle " dropdown-toggle ng-disabled="disabled">
-												<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"/>
-											</button>
-											<ul class="dropdown-menu" role="menu">
-												<li><a href="?#/browser" ng-click="enqueue(song)">Enqueue</a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<br>
-			</div>
-		</div>
+        <div>
+          <h4>Songs <span class="badge">{{mediaItems.length}} </span><small><a href=""> more...</a></small></h4> 
+          <div class="row">
+            <div ng-repeat="song in mediaItems">
+              <div class="col-xs-12 col-sm-4">
+                <div class="media" style="margin-top: 12px">
+                  <div class="media-left">
+                    <a href="#">
+                      <img class="media-object" width="100" height="100" src="https://upload.wikimedia.org/wikipedia/en/8/80/Rise_Against_Siren_Song_of_the_Counter_Culture.jpg" alt="...">
+                    </a>
+                  </div>
+                  <div class="media-body">
+                    <h4 class="media-heading">{{song.MetaData.Title}}<small> - 3:20</small></h4>
+                    Rise Against - <i>Siren Song of the Counter Culture (2004)</i>
+                    <button class="btn btn-xs" ng-click="play(song)" title="Play this song"> 
+                      <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+                    </button>
+                    <!-- Single button -->
+                    <div class="btn-group" dropdown is-open="false">
+                      <button type="button" class="btn btn-xs dropdown-toggle " dropdown-toggle ng-disabled="disabled">
+                        <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"/>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="?#/browser" ng-click="enqueue(song)">Enqueue</a></li>
+                          <li class="dropdown-submenu">
+                          <a tabindex="-1" href="#">Add to playlist</a>
+                          <ul class="dropdown-menu">
+                            <div ng-repeat="playlist in playlists">
+                              <li><a href="#browser" ng-click="addToPlaylist(playlist,song)">{{playlist.Name}}</a></li>
+                            </div>
+                          </ul>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+        </div>
+      </div>

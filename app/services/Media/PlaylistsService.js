@@ -10,7 +10,7 @@ noisedWeb.service('Playlists',function($rootScope,ConnectionManager,Command){
 	this.refresh = function(){
 		var command = 
 				{ 
-					'Name': 'Noised.Plugins.Commands.CoreCommands.GetPlaylists'
+                                    'Name': 'Noised.Plugins.Commands.CoreCommands.GetPlaylists'
 				};  
 		ConnectionManager.sendCommand(command);
 	};
@@ -32,6 +32,14 @@ noisedWeb.service('Playlists',function($rootScope,ConnectionManager,Command){
 				};  
 		ConnectionManager.sendCommand(command);
 	}
+
+        this.addToPlaylist = function(playlist, item){
+		var command = { 
+                    'Name': 'Noised.Plugins.Commands.CoreCommands.AddToPlaylist',
+                    'Parameters': [playlist.Name,[item.Uri]]
+                };  
+                ConnectionManager.sendCommand(command);
+        }
 
 	this.refreshHandler = function(connection, response){
 		if(response.Parameters.length > 0) {

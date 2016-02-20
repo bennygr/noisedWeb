@@ -1,72 +1,70 @@
 <div class="container">
-	<div class="visible-xs visible-s ">
-		<div class="dropdown">
-			<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-				Rock and Punk
-				<span class="caret"></span>
-			</button>
-			<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-				<li><a href="#">Action</a></li>
-				<li><a href="#">Another action</a></li>
-				<li><a href="#">Something else here</a></li>
-				<li role="separator" class="divider"></li>
-				<li><a href="#">Separated link</a></li>
-			</ul>
-		</div>
-		<br>
-	</div>
+  <div class="visible-xs visible-s ">
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        Rock and Punk
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li><a href="#">Action</a></li>
+        <li><a href="#">Another action</a></li>
+        <li><a href="#">Something else here</a></li>
+        <li role="separator" class="divider"></li>
+        <li><a href="#">Separated link</a></li>
+      </ul>
+    </div>
+    <br>
+  </div>
 
-	<div class="visible-md visible-lg col-md-3">
-		<div class="pull-right"> 
-			<button type="button" 
-				class="btn btn-default btn-xs" 
-				ng-click="createPlaylist()">
-				<span class="glyphicon glyphicon-plus"></span>
-			</button>
-		</div>
-		<br>
-		<br>
-		<!-- playlists list -->
-		<div class="list-group">
-			<div ng-repeat="playlist in playlists">
-				<div ng-show="playlist === selectedPlaylist">
-						<a href="" class="list-group-item active" ng-click="selectPlaylist(playlist)">{{playlist.Name}}</a>
+  <div class="visible-md visible-lg col-md-3">
+    <div class="pull-right"> 
+      <button type="button" 
+        class="btn btn-default btn-xs" 
+        ng-click="createPlaylist()">
+        <span class="glyphicon glyphicon-plus"></span>
+      </button>
+    </div>
+    <br>
+    <br>
+    <!-- playlists list -->
+    <div class="list-group">
+      <div ng-repeat="playlist in playlists">
+        <div ng-show="playlist === selectedPlaylist">
+          <a href="" class="list-group-item active" ng-click="selectPlaylist(playlist)">{{playlist.Name}}</a>
+        </div>
+        <div ng-show="playlist != selectedPlaylist" ng-click="selectPlaylist(playlist)">
+          <a href="" class="list-group-item">{{playlist.Name}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-9" >
+			<div ng-repeat="song in selectedPlaylist.Items">
+				<div class="list-group">
+					<div class="list-group-item">
+						<div class="media">
+							<div class="pull-right"> 
+								<div class="btn-group" role="group" aria-label="...">
+									<button type="button" 
+										class="btn btn-default btn-xs" 
+										ng-click="remove(song)">
+										<span class="glyphicon glyphicon-remove"></span>
+									</button>
+								</div>
+							</div>
+							<div class="media-left">
+								<a href="#">
+									<img class="media-object" width="50" height="50" src="https://upload.wikimedia.org/wikipedia/en/8/80/Rise_Against_Siren_Song_of_the_Counter_Culture.jpg" alt="...">
+								</a>
+							</div>
+							<div class="media-body">
+								<h4 class="media-heading">{{song.Item.MetaData.Title}}</h4>
+								Rise Against - <i>Siren Song of the Counter Culture (2004)</i>
+							</div>
+						</div>	
+					</div>
 				</div>
-				<div ng-show="playlist != selectedPlaylist" ng-click="selectPlaylist(playlist)">
-						<a href="" class="list-group-item">{{playlist.Name}}</a>
-				</div>
+
 			</div>
-		</div>
-	</div>
-	<div class="col-md-9" >
-		<div class="table-responsive">          
-			<table class="table">
-				<thead>
-					<tr>
-						<th></th>
-						<th>Title</th>
-						<th>Artist</th>
-						<th>Album</th>
-						<th>Length</th>
-					</tr>
-				</thead>
-				<tbody>
-						<div ng-repeat "song in selectedPlaylist.mediaItems">
-								<tr>
-									<td>
-										<div class="media-left">
-											<a href="#">
-												<img class="media-object" width="50" height="50" src="https://upload.wikimedia.org/wikipedia/en/8/80/Rise_Against_Siren_Song_of_the_Counter_Culture.jpg" alt="...">
-											</a>
-										</div>
-									</td>
-									<td>
-										{{song.Item.MetaData.Title}}
-									</td>
-								</tr>
-						</div>
-				</tbody>
-			</table>
-		</div>
-	</div>
+  </div>
 </div>

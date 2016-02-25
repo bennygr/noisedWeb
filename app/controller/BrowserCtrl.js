@@ -46,7 +46,14 @@ noisedWeb.controller('BrowserCtrl', function($scope,
     }
 
     var searchResultHandler = function(connection, response){
-        var resultList = response.Parameters[0][0].MediaItems;
+		var resultList=[];
+		 for(i=0; i<response.Parameters[0].length; i++){
+			 for(j=0; j<response.Parameters[0][i].MediaItems.length; j++){
+				 resultList.push(response.Parameters[0][i].MediaItems[j])
+			 }
+		 }
+		
+        //var resultList = response.Parameters[0][0].MediaItems;
         $scope.mediaItems = resultList;
         $scope.searchValue = $scope.searchInput;
         $scope.artists = getArtists(resultList);
@@ -58,14 +65,21 @@ noisedWeb.controller('BrowserCtrl', function($scope,
     var getArtists = function(mediaItems){
         var artists = [];
         for(var i=0; i<mediaItems.length; i++){
-            var itemArtists = mediaItems[i].MetaData.Artists;
-            itemArtists = itemArtists.concat(mediaItems[i].MetaData.AlbumArtists);
-            for(var a=0; a<itemArtists.length; a++){
-                if(!isInArrayIgnoreCase(artists,itemArtists[a])){
-                    artists.push(itemArtists[a]);
-                }
-            }
-        }
+			var itemArtists = mediaItems[i].MetaData.Artists;
+			if(itemArtists!=null){
+				itemArtists = itemArtists.concat(mediaItems[i].MetaData.AlbumArtists);
+				for(var a=0; a<itemArtists.length; a++){
+					if(!isInArrayIgnoreCase(artists,itemArtists[a])){
+						artists.push(itemArtists[a]);
+					}
+				}
+			}
+			else{
+				if(!isInArrayIgnoreCase(artists, "Unknown")){
+						artists.push("Unknown");
+					}
+			}
+		}
         return artists;
     };
 
@@ -73,10 +87,17 @@ noisedWeb.controller('BrowserCtrl', function($scope,
         var albums = [];
         for(var i=0; i<mediaItems.length; i++){
             var album = mediaItems[i].MetaData.Album;
-            if(!isInArrayIgnoreCase(albums,mediaItems[i].MetaData.Album)){
-                albums.push(mediaItems[i].MetaData.Album);
-            }
-        }
+			if(album!=null){
+				if(!isInArrayIgnoreCase(albums,mediaItems[i].MetaData.Album)){
+					albums.push(mediaItems[i].MetaData.Album);
+				}
+			}
+			else{
+				if(!isInArrayIgnoreCase(albums,"Unknown")){
+				albums.push("Unknown");
+				}
+			}
+		}
         return albums;
     };
 

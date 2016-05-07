@@ -1,0 +1,46 @@
+/**------------------------------------------------------------------------------------
+ * Noised web client
+ * Sidebar CSS 
+ * Style information for the main top navigation bar
+ *------------------------------------------------------------------------------------*/
+
+/* the basic style of the top navigation bar */
+#top-navbar{
+   position: fixed;
+   width: 100%;
+   height: 60px;
+   z-index: 1;
+}
+
+/* Moving the navigation bar to the left if the sidebar is opened */
+#wrapper.menuDisplayed #top-navbar{
+   left: 200px;
+}
+
+#button-menu-open{
+ visibility: visible;
+}
+
+#button-menu-close{
+ visibility: hidden;
+}
+
+#wrapper.menuDisplayed #button-menu-open{
+ visibility: hidden;
+}
+
+#wrapper.menuDisplayed #button-menu-close{
+ visibility: visible;
+}
+
+#menu-toggle{
+   height: 60px;
+   width: 60px;
+}
+
+#menu-toggle i{
+    padding: 15px 5px;
+}
+
+/*------------------------------------------------------------------------------------*/
+/* EOF */

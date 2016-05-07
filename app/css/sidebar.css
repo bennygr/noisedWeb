@@ -1,0 +1,138 @@
+/**------------------------------------------------------------------------------------
+ * Noised web client
+ * Sidebar CSS 
+ * Style information for the navigation bar of the noised client
+ *------------------------------------------------------------------------------------*/
+
+/* basic sidebar wrapper  */
+#sidebar-wrapper{
+   z-index: 1;     
+   /* fixed position */
+   position: fixed;
+   /*toggled by default */
+   width: 0px;
+   /* full heigth */
+   height: 100%;
+   min-height: 100%;
+   /* cut content off which does not fit into the sidebar */
+   overflow-y: hidden;
+   /** background color of the sidebar */
+   background: #232C32;
+}
+
+/* style of the sidebar */
+#sidebar-nav{
+   padding: 0;
+   /* we do not want dots in front of each item */
+   list-style: none;
+   padding-top: 20px;
+}
+
+/* list items within the sidebar */
+#sidebar-nav li {
+   /* indent the items to the rigth a bit */
+   text-indent: 10px;
+   /* make line heigth bigger in order to have more space for each item */
+   line-height: 40px;
+   font-weight: bold;
+}
+
+/* links within the sidebar */
+#sidebar-nav li a {
+   display: block;
+   text-decoration: none;
+   color: #7EA1AF;
+}
+
+/* hover style for links within the sidebar */
+#sidebar-nav li a:hover {
+   background: #2C3942;
+}
+
+/* the uper header panel of the sidebar */
+#sidebar-header{
+   background: #4CB6CB;
+   height: 60px;
+}
+
+#sidebar-header-label{
+  margin-left: 40px;
+  line-height: 60px;
+  color: white;
+}
+#sidebar-header-text{
+  font-weight: bold;
+  text-align: center;
+  font-size: 22px;
+}
+
+/* an icon for a nav element */
+#nav-icon{
+   padding-left: 20px;
+}
+
+/* header elements are grouping one or more links together */
+#nav-headline{
+   color: #7EA1AF;
+   padding-left: 10px;
+   font-size: 80%;
+   padding-top: 10px;
+   padding-bottom: 10px;
+}
+
+/* the nav icon for "noised-highlights" */
+#nav-icon-highlight{
+  color: red;
+}
+
+/* the nav icon for "noised-player" */
+#nav-icon-player{
+  color: #36688C;
+}
+
+/* the nav icon for "noised-search" */
+#nav-icon-search{
+    color: #DD8B22;
+}
+
+/* the nav icon for "noised-playlist" */
+#nav-icon-playlist{
+    color: #5E4055;
+}
+
+/* the nav icon for "noised-queue" */
+#nav-icon-queue{
+   color: #388A52;
+}
+
+/* the nav icon for "noised-preferences" */
+#nav-icon-preferences{
+   color: #5D6265;
+}
+
+/*------------------------------------------------------------------------------------*/
+
+/* Style for full open the nav bar */
+#wrapper.menuDisplayed #sidebar-wrapper{
+   width: 200px;
+}
+
+/* Change page's padding if the sidebar's is openend in order to move every thin 
+   to the right and show everthing */
+#wrapper.menuDisplayed #page-content-wrapper{
+   padding-left: 200px;
+}
+
+/*------------------------------------------------------------------------------------*/
+
+/* basic main area of the client content */
+#page-content-wrapper{
+   /* full width of the page */
+   width: 100%;
+   /* fixed position */
+   position: absolute;
+   padding: 15px;
+}
+
+/*------------------------------------------------------------------------------------*/
+/* EOF */

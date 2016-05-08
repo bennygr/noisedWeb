@@ -13,29 +13,36 @@
 }
 
 /* Moving the navigation bar to the left if the sidebar is opened */
-#wrapper.menuDisplayed #top-navbar{
+#wrapper.menuOpen #top-navbar{
    left: 200px;
 }
 
 #button-menu-open{
- visibility: visible;
+ visibility: hidden;;
 }
 
 #button-menu-close{
  visibility: hidden;
 }
 
-#wrapper.menuDisplayed #button-menu-open{
+#wrapper.menuOpen #button-menu-open{
  visibility: hidden;
 }
 
-#wrapper.menuDisplayed #button-menu-close{
+#wrapper.menuOpen #button-menu-close{
  visibility: visible;
 }
 
 #menu-toggle{
    height: 60px;
    width: 60px;
+   padding-left: 30px;
+}
+
+#wrapper.menuOpen #menu-toggle{
+   height: 60px;
+   width: 60px;
+   padding-left: 0px;
 }
 
 #menu-toggle i{

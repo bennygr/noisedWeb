@@ -10,12 +10,13 @@
    /* fixed position */
    position: fixed;
    /*toggled by default */
-   width: 0px;
+   width: 65px;
    /* full heigth */
    height: 100%;
    min-height: 100%;
    /* cut content off which does not fit into the sidebar */
    overflow-y: hidden;
+   overflow: hidden;
    /** background color of the sidebar */
    background: #232C32;
 }
@@ -30,6 +31,12 @@
 
 /* list items within the sidebar */
 #sidebar-nav li {
+   text-indent: 10px;
+   line-height: 20px;
+   font-weight: bold;
+}
+
+#wrapper.menuOpen #sidebar-nav li {
    /* indent the items to the rigth a bit */
    text-indent: 10px;
    /* make line heigth bigger in order to have more space for each item */
@@ -56,70 +63,105 @@
 }
 
 #sidebar-header-label{
+  margin-left: 10px;
+  line-height: 60px;
+  color: white;
+}
+
+#sidebar-header-icon{
+  margin-left: 5px;
+  line-height: 60px;
+  color: white;
+}
+
+#wrapper.menuOpen #sidebar-header-icon{
   margin-left: 40px;
   line-height: 60px;
   color: white;
 }
+
 #sidebar-header-text{
+  visibility: hidden;
+}
+
+#wrapper.menuOpen #sidebar-header-text{
   font-weight: bold;
   text-align: center;
   font-size: 22px;
+  visibility: visible;
 }
 
-/* an icon for a nav element */
-#nav-icon{
+
+/* Hide the icon text if the menu is not wide open */
+#nav-icon-text{
+   visibility: hidden;
+}
+
+/* make the text visible if the menu is wide open */
+#wrapper.menuOpen #nav-icon-text{
    padding-left: 20px;
+   visibility: visible;
 }
 
 /* header elements are grouping one or more links together */
-#nav-headline{
+#wrapper.menuOpen #nav-icon-text{
    color: #7EA1AF;
    padding-left: 10px;
    font-size: 80%;
    padding-top: 10px;
    padding-bottom: 10px;
+   visibility: visible;
+}
+#nav-headline{
+   visibility: hidden;
 }
 
 /* the nav icon for "noised-highlights" */
 #nav-icon-highlight{
   color: red;
+  padding-top: 18px;
 }
 
 /* the nav icon for "noised-player" */
 #nav-icon-player{
   color: #36688C;
+  padding-top: 18px;
 }
 
 /* the nav icon for "noised-search" */
 #nav-icon-search{
-    color: #DD8B22;
+  color: #DD8B22;
+  padding-top: 18px;
 }
 
 /* the nav icon for "noised-playlist" */
 #nav-icon-playlist{
-    color: #5E4055;
+  color: #5E4055;
+  padding-top: 18px;
 }
 
 /* the nav icon for "noised-queue" */
 #nav-icon-queue{
-   color: #388A52;
+  color: #388A52;
+  padding-top: 18px;
 }
 
 /* the nav icon for "noised-preferences" */
 #nav-icon-preferences{
-   color: #5D6265;
+  color: #5D6265;
+  padding-top: 18px;
 }
 
 /*------------------------------------------------------------------------------------*/
 
 /* Style for full open the nav bar */
-#wrapper.menuDisplayed #sidebar-wrapper{
+#wrapper.menuOpen #sidebar-wrapper{
    width: 200px;
 }
 
 /* Change page's padding if the sidebar's is openend in order to move every thin 
    to the right and show everthing */
-#wrapper.menuDisplayed #page-content-wrapper{
+#wrapper.menuOpen #page-content-wrapper{
    padding-left: 200px;
 }
 
@@ -132,6 +174,7 @@
    /* fixed position */
    position: absolute;
    padding: 15px;
+   padding-left: 60px;
 }
 
 /*------------------------------------------------------------------------------------*/

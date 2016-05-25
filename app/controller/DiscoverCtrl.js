@@ -1,4 +1,4 @@
-noisedWeb.controller('BrowserCtrl', function($scope, 
+noisedWeb.controller('DiscoverCtrl', function($scope, 
                                              ConnectionSettingsStorage,
                                              ConnectionManager,
                                              Command,

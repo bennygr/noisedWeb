@@ -3,6 +3,8 @@
 
 <head>
 		<meta charset="utf-8">
+    <!-- disable scrolling on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Noised</title>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.min.css"/>
@@ -28,7 +30,7 @@
         <div id="nav-headline"> discover</div>
         <li> <a href="#/"> <i id="nav-icon-highlight" class="fa fa-heart-o fa-lg"></i><span id="nav-icon-text"> Highlights</span></a> </li>
         <li> <a href="#player"> <i id="nav-icon-player" class="fa fa-music fa-lg"></i><span id="nav-icon-text"> Player</span></a> </li>
-        <li> <a href="#browser"> <i id="nav-icon-search" class="fa fa-search fa-lg"></i><span id="nav-icon-text"> Discover</span></a> </li>
+        <li> <a href="#discover"> <i id="nav-icon-search" class="fa fa-search fa-lg"></i><span id="nav-icon-text"> Discover</span></a> </li>
         <li> <a href="#queue"> <i id="nav-icon-queue" class="fa fa-mail-forward fa-lg"></i><span id="nav-icon-text"> Queue</span></a> </li>
         <li> <a href="#playlists"> <i id="nav-icon-playlist" class="fa fa-list fa-lg"></i><span id="nav-icon-text"> Playlists</span></a> </li>
         <div id="nav-headline"> your noised</div>
@@ -86,7 +88,7 @@
 <script src="app/services/Media/QueueService.js"></script>
 <script src="app/services/Media/PlaylistsService.js"></script>
 <script src="app/controller/MainCtrl.js"></script>
-<script src="app/controller/BrowserCtrl.js"></script>
+<script src="app/controller/DiscoverCtrl.js"></script>
 <script src="app/controller/LandingCtrl.js"></script>
 <script src="app/controller/PlayerCtrl.js"></script>
 <script src="app/controller/CreateConnectionSettingsCtrl.js"></script>

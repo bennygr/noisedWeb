@@ -26,9 +26,9 @@ noisedWeb.config(function($routeProvider){
 			fallbackBackgroundImage: 'app/img/default.jpg'
 	})
 	//player
-	.when('/browser',{
-			templateUrl: 'app/views/browser.html',
-			controller:  'BrowserCtrl',
+	.when('/discover',{
+			templateUrl: 'app/views/discover.html',
+			controller:  'DiscoverCtrl',
 			hasBackgroundImage: true,
 			fallbackBackgroundImage: 'app/img/default.jpg'
 	})

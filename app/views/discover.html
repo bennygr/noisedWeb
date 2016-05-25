@@ -1,0 +1,60 @@
+<div class="container-fluid">
+  <br>
+  <br>
+  <br>
+  <!-- Search input -->
+  <div class="row">
+    <div class="col-xs-12">
+      <form ng-submit="search()">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search Artist, Album or Song ..." ng-model="searchInput">
+          <span class="input-group-btn">
+            <button class="btn btn-default" ng-click="search()" type="button">
+                <i class="fa fa-search fa-lg"></i>
+            </button>
+          </span>
+        </div>
+      </form>
+    </div>
+  </div> <!-- Search input -->
+
+  <br>
+  <br>
+
+  <!-- display if no music was found -->
+  <div ng-show="mediaItems.length === 0 "> 
+    <div class="alert alert-danger" role="alert">
+      <h4>
+        <i class="fa fa-frown-o fa-lg"></i>&nbsp; Oops! No music matched your query "{{searchValue}}."
+      </h4>
+    </div>
+  </div>
+
+  <!-- Showing results -->
+  <div ng-show="mediaItems.length > 0">
+
+    <!-- Showing artists -->
+    <div class="page-header">
+      <h4>
+        <span>{{artists.length}} </span> Artists found. <small> <a href=""> More...</a></small>
+        <hr>
+      </h4>
+       <div ng-include src="'app/views/mediaItem.html'"></div>
+    </div<! -- Showing artists -->
+    <!-- Showing albums -->
+    <div class="page-header">
+      <h4>
+        <span>{{albums.length}} </span> Albums found. <small> <a href=""> More...</a></small>
+        <hr>
+      </h4>
+    </div<! -- Showing artists -->
+    <!-- Showing songs -->
+    <div class="page-header">
+      <h4>
+        <span>{{mediaItems.length}} </span> Songs found. <small> <a href=""> More...</a></small>
+        <hr>
+      </h4>
+    </div<!-- Showing artists -->
+  </div><!-- Showing results -->
+
+</div>

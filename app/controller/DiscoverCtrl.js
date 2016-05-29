@@ -10,6 +10,7 @@ noisedWeb.controller('DiscoverCtrl', function($scope,
     $scope.mediaItems = null;
     $scope.artists = null;
     $scope.playlists = Playlists.playlists;
+    $scope.vorname = "benny ";
             
     $scope.menuStatus = {
         isopen: false

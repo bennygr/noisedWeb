@@ -40,21 +40,24 @@
         <hr>
       </h4>
        <div ng-include src="'app/views/mediaItem.html'"></div>
-    </div<! -- Showing artists -->
+    </div><! -- Showing artists -->
     <!-- Showing albums -->
     <div class="page-header">
       <h4>
         <span>{{albums.length}} </span> Albums found. <small> <a href=""> More...</a></small>
         <hr>
       </h4>
-    </div<! -- Showing artists -->
+    </div><! -- Showing artists -->
     <!-- Showing songs -->
     <div class="page-header">
       <h4>
         <span>{{mediaItems.length}} </span> Songs found. <small> <a href=""> More...</a></small>
         <hr>
       </h4>
-    </div<!-- Showing artists -->
-  </div><!-- Showing results -->
+      <div class="row">
+        <noised-media-item-collection items="mediaItems"></noised-media-item-collection>
+      </div>
+    </div><!-- Showing artists -->
 
+  </div><!-- Showing results -->
 </div>

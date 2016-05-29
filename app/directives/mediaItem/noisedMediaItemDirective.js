@@ -1,9 +1,12 @@
 /**
- * A directive for displaying mediaItems
+ * A directive for displaying a noised media item
  */
 noisedWeb.directive('noisedMediaItem',function(){
     return{
-        restricted: 'E',
-        templateUrl: 'app/directives/mediaItem/noisedMediaItemDirective.html'
+        restrict: 'AEC',
+        templateUrl: 'app/directives/mediaItem/noisedMediaItemDirective.html',
+        scope: {
+            item: "=item"
+        },
     };
 });

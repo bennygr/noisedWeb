@@ -19,6 +19,5 @@
     "angular-route": "~1.2.16",
     "bootstrap": "~3.3.4",
     "angular-bootstrap": "~0.12.1",
-    "fontawesome": "~4.6.2"
   }
 }

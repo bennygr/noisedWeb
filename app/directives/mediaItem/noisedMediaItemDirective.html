@@ -1,2 +1,31 @@
-<img class="img-responsive" style="width: 140px;"  src="app/img/defaultArtist.jpg"></img>
-<b>{{item.MetaData.Title}}</b> <br><small>{{item.MetaData.Artists[0]}}</small>
+<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+  <div class="well">
+    <div>
+      <img class="img-responsive center-block" src="app/img/defaultSong.png" alt="">
+      <br>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div >
+          <h4>
+            {{item.MetaData.Title}}
+          </h4>
+          <p class="text-muted">
+          {{item.MetaData.Artists[0]}} 
+          </p>
+        </div>
+      </div>
+    </div>
+    <p class="icon-links">
+      <div class="btn-group open">
+        <a class="btn btn-default btn-sm" href="#"> <i class="fa fa-play"></i> </a>
+        <a class="btn btn-default btn-sm" style="color: red" href="#"> <i class="fa fa-heart-o"></i> </a>
+        <a class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-bars fa-fw"></i></a>
+        <ul class="dropdown-menu">
+          <li><a href="#"><i class="fa fa-mail-forward fa-fw"></i> Enqueue</a></li>
+          <li><a href="#"><i class="fa fa-list fa-fw"></i> Add to Playlist</a></li>
+        </ul>
+      </div>
+    </p>
+  </div>
+</div>

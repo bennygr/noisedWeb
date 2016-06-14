@@ -1,5 +1,5 @@
 noisedWeb.controller('SettingsCtrl', function($scope,
-											  $modal,
+											  $uibModal,
 											  Theme,
 											  AppearanceSettingsStorage,
 											  ConnectionManager, 
@@ -24,7 +24,7 @@ noisedWeb.controller('SettingsCtrl', function($scope,
 	 * Creates a new connection
 	 */
 	$scope.createConnectionSettings = function(templateUrl){
-		var modalInstance = $modal.open({
+		var modalInstance = $uibModal.open({
 				templateUrl: templateUrl,
 				controller: 'CreateConnectionSettingsCtrl',
 				resolve: {
@@ -44,7 +44,7 @@ noisedWeb.controller('SettingsCtrl', function($scope,
 	 * Edits an existing connection
 	 */
 	$scope.editConnectionSettings = function(templateUrl,connectionSettings){
-		var modalInstance = $modal.open({
+		var modalInstance = $uibModal.open({
 				templateUrl: templateUrl,
 				controller: 'CreateConnectionSettingsCtrl',
 				resolve: {

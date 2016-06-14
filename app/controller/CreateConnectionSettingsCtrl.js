@@ -1,7 +1,7 @@
 
 noisedWeb.controller('CreateConnectionSettingsCtrl', 
 					 function($scope,
-							  $modalInstance,
+							  $uibModalInstance,
 							  ConnectionManager,
 							  ConnectionSettingsStorage,
 							  Command,
@@ -43,7 +43,7 @@ noisedWeb.controller('CreateConnectionSettingsCtrl',
 					$scope.password);
 			ConnectionSettingsStorage.addSettings(connectionSettings);
 			$scope.$digest();
-			$modalInstance.close();
+			$uibModalInstance.close();
 		}
 	};
 
@@ -52,7 +52,7 @@ noisedWeb.controller('CreateConnectionSettingsCtrl',
 	Command.registerResponseCallback(welcomeCallback,/Noised\.Commands\.Core\.Welcome/);
 
 	$scope.cancel = function(){
-		$modalInstance.dismiss('cancel');
+		$uibModalInstance.dismiss('cancel');
 	};
 	$scope.connect = function(){
 		if(!$scope.host){

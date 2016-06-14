@@ -1,7 +1,7 @@
 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-  <div class="well">
+  <div class="well" style="width: 250px">
     <div>
-      <img class="img-responsive center-block" src="app/img/defaultSong.png" alt="">
+      <img class="img-responsice center-block" style="width: 100px; heigth: 100px;" src="app/img/defaultSong.png" alt="">
       <br>
     </div>
     <div class="row">
@@ -17,16 +17,22 @@
       </div>
     </div>
     <p class="icon-links">
-      <div class="btn-group open">
+      <div class="btn-group open" uib-dropdown>
         <a class="btn btn-default btn-sm" href="#"> <i class="fa fa-play"></i> </a>
         <a class="btn btn-default btn-sm" style="color: red" href="#"> <i class="fa fa-heart-o"></i> </a>
-        <a class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-bars fa-fw"></i></a>
-        <ul class="dropdown-menu">
-          <li><a href="#"><i class="fa fa-mail-forward fa-fw"></i> Enqueue</a></li>
-          <li><a href="#"><i class="fa fa-list fa-fw"></i> Add to Playlist</a></li>
-          <li><a href="#"><i class="fa fa-info-circle fa-fw" ></i> Show Album</a></li>
-        </ul>
-      </div>
+        <!-- Split button -->
+          <button type="button" class="btn btn-default btn-sm" uib-dropdown-toggle>
+            <span class="fa fa-bars"></span>
+          </button>
+          <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="split-button">
+            <li role="menuitem"><a href="#">Action</a></li>
+            <li role="menuitem"><a href="#">Another action</a></li>
+            <li role="menuitem"><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li role="menuitem"><a href="#">Separated link</a></li>
+          </ul>
+      </div> <!-- Split button -->
     </p>
+
   </div>
 </div>

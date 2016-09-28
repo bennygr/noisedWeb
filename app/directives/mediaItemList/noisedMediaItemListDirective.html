@@ -1,0 +1,27 @@
+<div ng-repeat="song in items">
+  <div class="list-group">
+    <div class="list-group-item">
+      <div class="media">
+        <div class="pull-right"> 
+          <div class="btn-group" role="group" aria-label="...">
+            <button type="button" 
+              class="btn btn-default btn-xs" 
+              ng-click="remove(song)">
+              <span class="glyphicon glyphicon-remove"></span>
+            </button>
+          </div>
+        </div>
+        <div class="media-left">
+          <a href="#">
+            <img class="media-object" width="50" height="50" src="https://upload.wikimedia.org/wikipedia/en/8/80/Rise_Against_Siren_Song_of_the_Counter_Culture.jpg" alt="...">
+          </a>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading">{{song.Item.MetaData.Title}}</h4>
+          Rise Against - <i>Siren Song of the Counter Culture (2004)</i>
+        </div>
+      </div>	
+    </div>
+  </div>
+
+</div>

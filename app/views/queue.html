@@ -5,7 +5,7 @@
 		<ul class="list-group">
 			<div class="jumbotron" ng-show="isQueueEmpty()">
 				<p align="center">
-				The queue is empty! Why don't you <a  href="#browser">search</a> for some awesome music to put into the queue?
+				The queue is empty! Why don't you <a  href="#discover">search</a> for some awesome music to put into the queue?
 				</p>
 			</div>
 			<h4 ng-show="!isQueueEmpty()">
@@ -19,6 +19,7 @@
 				</div>
 			</h4>
 			<hr>
+      <noised-media-item-list item="content"></noised-media-item-list>
 			<div ng-repeat="song in content">
 				<div class="list-group">
 					<div class="list-group-item">
@@ -41,6 +42,7 @@
 								<h4 class="media-heading">{{song.Item.MetaData.Title}}</h4>
 								Rise Against - <i>Siren Song of the Counter Culture (2004)</i>
 							</div>
+              <noised-media-item-list-entry item="song.Item"></noised-media-item-list-entry>
 						</div>	
 					</div>
 				</div>

@@ -1,7 +1,7 @@
 /**
- * A directive for displaying a set of noised media items  in a collection like view
+ * A directive for displaying a set of noised media items in a list like view
  */
-noisedWeb.directive('noisedMediaItemCollection',function(){
+noisedWeb.directive('noisedMediaItemList',function(){
 
     var controller = ['$scope', function ($scope) {
 
@@ -13,7 +13,7 @@ noisedWeb.directive('noisedMediaItemCollection',function(){
     }] ;
     return{
         restrict: 'AEC',
-        templateUrl: 'app/directives/mediaItemCollection/noisedMediaItemCollectionDirective.html',
+        templateUrl: 'app/directives/mediaItemList/noisedMediaItemListDirective.html',
         scope: {
             items: "=items",
         },

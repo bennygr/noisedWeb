@@ -1,38 +1,26 @@
-<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-  <div class="well" style="width: 250px">
-    <div>
-      <img class="img-responsice center-block" style="width: 100px; heigth: 100px;" src="app/img/defaultSong.png" alt="">
-      <br>
-    </div>
-    <div class="row">
-      <div class="col-xs-12">
-        <div >
-          <h4>
-            {{item.MetaData.Title}}
-          </h4>
-          <p class="text-muted">
-          {{item.MetaData.Artists[0]}} 
-          </p>
-        </div>
-      </div>
-    </div>
+  <div class="p" style="margin-top: 50px;">
+    <img width="130" height="130" title="{{$index}}" src="app/img/defaultSong.png">
+    <h5>
+      {{item.MetaData.Title}}
+    </h5>
+    <p class="text-muted">
+        {{item.MetaData.Artists[0]}} 
+    </p>
     <p class="icon-links">
       <div class="btn-group open" uib-dropdown>
-        <a class="btn btn-default btn-sm" href="#"> <i class="fa fa-play"></i> </a>
+        <a class="btn btn-default btn-sm" ng-click="play()"> <i class="fa fa-play"></i> </a>
         <a class="btn btn-default btn-sm" style="color: red" href="#"> <i class="fa fa-heart-o"></i> </a>
-        <!-- Split button -->
-          <button type="button" class="btn btn-default btn-sm" uib-dropdown-toggle>
-            <span class="fa fa-bars"></span>
-          </button>
-          <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="split-button">
-            <li role="menuitem"><a href="#">Action</a></li>
-            <li role="menuitem"><a href="#">Another action</a></li>
-            <li role="menuitem"><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li role="menuitem"><a href="#">Separated link</a></li>
-          </ul>
-      </div> <!-- Split button -->
+        <button type="button" class="btn btn-default btn-sm" uib-dropdown-toggle>
+          <span class="fa fa-bars"></span>
+        </button>
+        <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="split-button">
+          <li role="menuitem"><a ng-click="enqueue()">Enqueue</a></li>
+          <li role="menuitem"><a href="#">Another action</a></li>
+          <li role="menuitem"><a href="#">Something else here</a></li>
+          <li class="divider"></li>
+          <li role="menuitem"><a href="#">Separated link</a></li>
+        </ul>
+      </div> 
     </p>
-
   </div>
-</div>
+

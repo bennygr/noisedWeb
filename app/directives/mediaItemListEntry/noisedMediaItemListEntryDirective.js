@@ -6,7 +6,7 @@ noisedWeb.directive('noisedMediaItemListEntry',function(Playback,Queue){
     var controller = ['$scope', function ($scope) {
         //Invokes the remove callback with the current listable item
         $scope.remove = function(){
-            $scope.removeClb($scope.item);
+            $scope.removeClb($scope.listableItem);
         }
     }] ;
 
@@ -15,7 +15,7 @@ noisedWeb.directive('noisedMediaItemListEntry',function(Playback,Queue){
         templateUrl: 'app/directives/mediaItemListEntry/noisedMediaItemListEntryDirective.html',
         scope: {
             //= for two way data binding
-            item: "=",
+            listableItem: "=",
             //Boolean which controls whether or not to show the remove button
             hideRemoveButton :"=",
             //A callback called when the remove button is clicked 

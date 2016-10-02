@@ -11,7 +11,7 @@ noisedWeb.directive('noisedMediaItemList',function(){
         templateUrl: 'app/directives/mediaItemList/noisedMediaItemListDirective.html',
         scope: {
             ///The listable Item to display 
-            items: "=",
+            listableItems: "=",
             //Boolean which controls whether or not to show the remove button
             hideRemoveButton: "=",
             //A callback called when the remove button is clicked 

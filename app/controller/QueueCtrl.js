@@ -14,7 +14,6 @@ noisedWeb.controller('QueueCtrl', function($scope,Queue){
     }
 
     $scope.remove = function(listableItem){
-        alert(JSON.stringify(listableItem));
         Queue.remove(listableItem);
     }
 

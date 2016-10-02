@@ -1,5 +1,5 @@
-<div ng-repeat="song in items">
+<div ng-repeat="song in listableItems">
   <div class="list-group">
-    <noised-media-item-list-entry item="song" hide-Remove-Button="hideRemoveButton" remove-Clb="removeClb({arg1: song})"></noised-media-item-list-entry>
+    <noised-media-item-list-entry listable-Item="song" hide-Remove-Button="hideRemoveButton" remove-Clb="removeClb({arg1: song})"></noised-media-item-list-entry>
   </div>
 </div>

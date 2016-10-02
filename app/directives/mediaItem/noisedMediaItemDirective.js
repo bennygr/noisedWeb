@@ -5,12 +5,6 @@ noisedWeb.directive('noisedMediaItem',function(Playback,Queue){
 
     var controller = ['$scope', function ($scope) {
 
-        function init() {
-            $scope.items = angular.copy($scope.datasource);
-        }
-
-        init();
-
         $scope.play = function() {
             Playback.play($scope.item);
         }

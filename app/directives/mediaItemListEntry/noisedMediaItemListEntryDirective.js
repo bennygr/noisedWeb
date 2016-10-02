@@ -4,15 +4,9 @@
 noisedWeb.directive('noisedMediaItemListEntry',function(Playback,Queue){
 
     var controller = ['$scope', function ($scope) {
-
-        function init() {
-            $scope.items = angular.copy($scope.datasource);
-        }
-
-        init();
-
+        //Invokes the remove callback with the current listable item
         $scope.remove = function(){
-            Queue.remove($scope.item);
+            $scope.removeClb($scope.item);
         }
     }] ;
 
@@ -20,7 +14,12 @@ noisedWeb.directive('noisedMediaItemListEntry',function(Playback,Queue){
         restrict: 'AEC',
         templateUrl: 'app/directives/mediaItemListEntry/noisedMediaItemListEntryDirective.html',
         scope: {
+            //= for two way data binding
             item: "=",
+            //Boolean which controls whether or not to show the remove button
+            hideRemoveButton :"=",
+            //A callback called when the remove button is clicked 
+            removeClb: "&"
         },
         controller: controller
     };
